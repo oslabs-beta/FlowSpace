@@ -4,7 +4,8 @@
   "description": "",
   "main": "handshake.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "react-scripts start"
   },
   "repository": {
     "type": "git",
@@ -19,7 +20,13 @@
   "dependencies": {
     "express": "^4.18.1",
     "socket.io": "^4.5.1",
-    "socket.io-client": "^4.5.1"
+    "socket.io-client": "^4.5.1",
+    "@tensorflow/tfjs-node": "^3.19.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-flow-renderer": "^10.3.16",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4"
   },
   "bin": {
     "stabrabbit7": "./server.js"
