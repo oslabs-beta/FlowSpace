@@ -1,7 +1,7 @@
 // import { node } from '@tensorflow/tfjs-node';
 import React, { useCallback } from 'react';
 import ReactFlow, { useNodesState, useEdgesState, addEdge} from 'react-flow-renderer';
-import './App.css';
+import './App.scss';
 
 
 class Node {

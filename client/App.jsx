@@ -1,5 +1,6 @@
-import './App.css';
-import HorizontalFlow from './ReactFlowTest'
+import React from "react";
+import './App.scss';
+import HorizontalFlow from './ReactFlowTest.jsx'
 
 function App() {
   return (
