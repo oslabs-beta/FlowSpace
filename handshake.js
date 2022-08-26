@@ -28,7 +28,6 @@ class HandShake {
     //     console.log('Dev Client disconnected')
     //   });
     // });
-  }
 
   // sendData(e) {
   //   // e.preventDefault();
