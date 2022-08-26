@@ -46,6 +46,7 @@ let initialEdges = [];
 function parseLayer(layerInfo, setNodes, setEdges) {
   // input layer
   const initialNodes = [];
+  initialEdges = [];
   for (let i = 0; i < layerInfo[0].input_shape; i++) {
     // populate node information
     const nodeInfo = {
