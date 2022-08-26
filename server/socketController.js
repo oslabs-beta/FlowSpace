@@ -1,44 +1,4 @@
-// import { node } from '@tensorflow/tfjs-node';
-import React, { useCallback, useState, useEffect } from 'react';
-import ReactFlow, {
-  useNodesState,
-  useEdgesState,
-  addEdge,
-} from 'react-flow-renderer';
-import './App.scss';
-
-class Node {
-  constructor(layerInfo, nodeInfo) {
-    this.layerInfo = layerInfo;
-    this.nodeInfo = nodeInfo;
-  }
-}
-
-const initialNodes = [];
-const initialEdges = [];
-
-// const layerInfo =
-// {
-//   '0': { layer_number: 0, layer_type: 'DENSE', input_shape: 2, output_shape: 10, params: 30 },
-//   '1': { layer_number: 1, layer_type: 'DENSE', input_shape: 10, output_shape: 5, params: 55 },
-//   '2': { layer_number: 2, layer_type: 'DENSE', input_shape: 5, output_shape: 2, params: 12}
-// }
-
-// const layerInfo =
-// {
-//   '0': { layer_number: 0, layer_type: 'DENSE', input_shape: 2, output_shape: 3, params: 30 },
-//   '1': { layer_number: 1, layer_type: 'DENSE', input_shape: 3, output_shape: 5, params: 55 },
-//   '2': { layer_number: 2, layer_type: 'DENSE', input_shape: 5, output_shape: 2, params: 12}
-// }
-
-// const layerInfo =
-// {
-//   '0': { layer_number: 0, layer_type: 'DENSE', input_shape: 2, output_shape: 19, params: 30 },
-//   '1': { layer_number: 1, layer_type: 'DENSE', input_shape: 19, output_shape: 10, params: 55 },
-//   '2': { layer_number: 2, layer_type: 'DENSE', input_shape: 10, output_shape: 5, params: 12},
-//   '3': { layer_number: 3, layer_type: 'DENSE', input_shape: 5, output_shape: 2, params: 12},
-//   '4': { layer_number: 4, layer_type: 'DENSE', input_shape: 2, output_shape: 1, params: 12}
-// }
+const socketController = {};
 
 function parseLayer(layerInfo) {
   // input layer
@@ -178,38 +138,3 @@ function parseLayer(layerInfo) {
   console.log('these are our nodes', initialNodes);
   console.log('these are our edges', initialEdges);
 }
-
-const HorizontalFlow = ({ socket }) => {
-  const nodeInfo = initialNodes.map((x) => x.nodeInfo);
-
-  const [nodes, _, onNodesChange] = useNodesState(nodeInfo);
-  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
-  const onConnect = useCallback(
-    (params) => setEdges((els) => addEdge(params, els)),
-    []
-  );
-
-  //SocketIO State
-  const [model, setModel] = useState([]);
-
-  useEffect(() => {
-    socket.on('incomingData', (data) => {
-      console.log(data);
-      setModel([...model, data]);
-    });
-  }, [socket, model]);
-
-  return (
-    <ReactFlow
-      nodes={nodes}
-      edges={edges}
-      onNodesChange={onNodesChange}
-      onEdgesChange={onEdgesChange}
-      onConnect={onConnect}
-      fitView
-      attributionPosition="bottom-left"
-    ></ReactFlow>
-  );
-};
-
-export default HorizontalFlow;
