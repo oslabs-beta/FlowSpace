@@ -22,41 +22,38 @@ app.get('/bundle.js', (req, res) => {
 
 // model must be doubly parsed prior to using this function
 const parseModel = (model) => {
-// model must be doubly parsed prior to using this function
-const printSummary = (model) => {
-  // model = JSON.parse(model);
+  model = JSON.parse(model);
  
-   let layer = {};
+  let layer = {};
  
-   for (let i = 0; i < model.config.layers.length; i++) {
+  for (let i = 0; i < model.config.layers.length; i++) {
  
-     // check if it's the first layer or not to set input shape 
-     model.config.layers[i].config.batch_input_shape ?
-     input_shape = model.config.layers[i].config.batch_input_shape[1]
-     : input_shape = model.config.layers[i-1].config.units;
- 
-     // set output shape
-     output_shape = model.config.layers[i].config.units;
- 
-     // calculate layer height 
-     const layer_height_px = 80 + ((output_shape - 1) * 100)
- 
-     // calculate connections
-     params = (input_shape * output_shape) + output_shape;
- 
- 
-     layer[i] = 
-     {
-       layer_number: i,
-       layer_type: model.config.layers[i].config.name.includes('dense') ? 'DENSE' : 'NOT DENSE',
-       input_shape,
-       output_shape,
-       layer_height_px,
-       params
-     }
-   }
-   return layer;
- }
+    // check if it's the first layer or not to set input shape 
+    model.config.layers[i].config.batch_input_shape ?
+    input_shape = model.config.layers[i].config.batch_input_shape[1]
+    : input_shape = model.config.layers[i-1].config.units;
+
+    // set output shape
+    output_shape = model.config.layers[i].config.units;
+
+    // calculate layer height 
+    const layer_height_px = 80 + ((output_shape - 1) * 100)
+
+    // calculate connections
+    params = (input_shape * output_shape) + output_shape;
+
+
+    layer[i] = 
+    {
+      layer_number: i,
+      layer_type: model.config.layers[i].config.name.includes('dense') ? 'DENSE' : 'NOT DENSE',
+      input_shape,
+      output_shape,
+      layer_height_px,
+      params
+    }
+  }
+  return layer;
 }
 
 io.on("connection", (socket) => {
@@ -64,8 +61,7 @@ io.on("connection", (socket) => {
 
   socket.on('modelData', (data) => {
     const d = parseModel(data);
-    socket.emit('incomingData', d);
-    // console.log(d.config.layers);
+    io.sockets.emit('incomingData', d);
   });
 
   socket.on('disconnect', () => {

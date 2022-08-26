@@ -5,7 +5,10 @@ import ReactFlow, {
   useEdgesState,
   addEdge,
 } from 'react-flow-renderer';
+import socketIO from 'socket.io-client';
 import './App.scss';
+
+const socket = socketIO.connect('http://localhost:3333');
 
 class Node {
   constructor(layerInfo, nodeInfo) {
@@ -13,9 +16,6 @@ class Node {
     this.nodeInfo = nodeInfo;
   }
 }
-
-const initialNodes = [];
-const initialEdges = [];
 
 // const layerInfo =
 // {
@@ -40,8 +40,12 @@ const initialEdges = [];
 //   '4': { layer_number: 4, layer_type: 'DENSE', input_shape: 2, output_shape: 1, params: 12}
 // }
 
-function parseLayer(layerInfo) {
+let nodeInfo = [];
+let initialEdges = [];
+
+function parseLayer(layerInfo, setNodes, setEdges) {
   // input layer
+  const initialNodes = [];
   for (let i = 0; i < layerInfo[0].input_shape; i++) {
     // populate node information
     const nodeInfo = {
@@ -175,29 +179,37 @@ function parseLayer(layerInfo) {
       initialEdges.push(edge);
     }
   }
+  nodeInfo = initialNodes.map((x) => x.nodeInfo);
   console.log('these are our nodes', initialNodes);
   console.log('these are our edges', initialEdges);
+  setNodes(nodeInfo);
+  setEdges(initialEdges);
 }
 
-const HorizontalFlow = ({ socket }) => {
-  const nodeInfo = initialNodes.map((x) => x.nodeInfo);
 
-  const [nodes, _, onNodesChange] = useNodesState(nodeInfo);
-  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
+const HorizontalFlow = () => {
+  const [nodes, setNodes, onNodesChange] = useNodesState([]);
+  const [edges, setEdges, onEdgesChange] = useEdgesState([]);
   const onConnect = useCallback(
     (params) => setEdges((els) => addEdge(params, els)),
     []
   );
 
-  //SocketIO State
-  const [model, setModel] = useState([]);
-
   useEffect(() => {
     socket.on('incomingData', (data) => {
-      console.log(data);
-      setModel([...model, data]);
+      parseLayer(data, setNodes, setEdges);
     });
-  }, [socket, model]);
+  }, []);
+
+  //SocketIO State
+  // const [model, setModel] = useState([]);
+
+  // useEffect(() => {
+  //   socket.on('incomingData', (data) => {
+  //     console.log(data);
+  //     setModel([...model, data]);
+  //   });
+  // }, [socket, model]);
 
   return (
     <ReactFlow
