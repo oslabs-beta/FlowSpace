@@ -1,17 +1,15 @@
 //DevClient side
 //imports socketIO client with connection
-import { io } from 'socket.io-client';
+import socketIO from 'socket.io-client';
 
+const socket = socketIO.connect('http://localhost:3333');
 
 class HandShake {
   constructor(model) {
     this.model = model;
-    this.connect();
+    socket.emit('modelData', this.model);
   }
 
-  connect() {
-    const socket = io('http://localhost:3333');
-    socket.emit('test', this.model);
     
     // socketServer side
     // socketIO.on('connection', (socket) => {
@@ -30,7 +28,6 @@ class HandShake {
     //     console.log('Dev Client disconnected')
     //   });
     // });
-  }
 
   // sendData(e) {
   //   // e.preventDefault();
