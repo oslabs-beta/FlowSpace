@@ -1,5 +1,24 @@
 .App {
-    text-align: center;
+    /*text-align: center;*/
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(
+      135deg,
+      hsl(0deg 0% 100%) 0%,
+      hsl(223deg 57% 98%) 13%,
+      hsl(223deg 57% 96%) 27%,
+      hsl(222deg 57% 94%) 40%,
+      hsl(222deg 57% 92%) 52%,
+      hsl(222deg 57% 90%) 64%,
+      hsl(221deg 57% 87%) 75%,
+      hsl(221deg 57% 85%) 85%,
+      hsl(221deg 57% 83%) 93%,
+      hsl(220deg 57% 81%) 100%
+    );
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
   
   /*
@@ -16,17 +35,48 @@
     }
   }
   */
+
+  .Dashboard {
+    width: 90%;
+    height: 90%;
+    border-radius: 30px;
+    background-color: #FAFBFF;
+    box-shadow: 0 10px 20px rgb(179, 197, 234, .75);
+    /*display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;*/
+  }
   
-  .App-header {
-    background-color: #282c34;
+  .react-flow-rectangle {
+    width: 50%;
+    height: 50%;
+    background-color: #fff;
+    border-radius: 30px;
+    backdrop-filter: blur(5px);
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow: 0 10px 20px rgb(179, 197, 234, .75),
+             inset 0px 0px 0px 0px rgba(145, 192, 255, 0.75),
+             inset -4px -4px 8px 0px rgba(145, 193, 255, 0.30),
+             inset 0px 10px 20px 0px rgb(255, 255, 255);
+    /*display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);*/
+  }
+
+  .vertical-nav {
+    background-color: #fff;
+    border-radius: 30px 0px 0px 30px;
+  }
+  
+  .analytics {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
   }
-  
   /*
   .App-link {
     color: #61dafb;
@@ -43,11 +93,5 @@
   }
 */
 
-  .react-flow {
-    /*
-    background: rgb(244,180,0);
-    background: linear-gradient(90deg, rgba(244,180,0,1) 0%, rgba(219,68,55,1) 100%); 
-    */
 
-    background:#212121;
-  }
+ 

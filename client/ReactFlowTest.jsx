@@ -19,49 +19,6 @@ class Node {
 }
 
 
-// const layerInfo = {
-//   0: {
-//     layer_number: 0,
-//     layer_type: 'DENSE',
-//     input_shape: 2,
-//     output_shape: 11,
-//     layer_height_px: 1080,
-//     params: 33,
-//   },
-//   1: {
-//     layer_number: 1,
-//     layer_type: 'DENSE',
-//     input_shape: 11,
-//     output_shape: 5,
-//     layer_height_px: 480,
-//     params: 60,
-//   },
-//   2: {
-//     layer_number: 2,
-//     layer_type: 'DENSE',
-//     input_shape: 5,
-//     output_shape: 2,
-//     layer_height_px: 180,
-//     params: 12,
-//   },
-//   3: {
-//     layer_number: 3,
-//     layer_type: 'DENSE',
-//     input_shape: 2,
-//     output_shape: 7,
-//     layer_height_px: 680,
-//     params: 21,
-//   },
-//   4: {
-//     layer_number: 4,
-//     layer_type: 'DENSE',
-//     input_shape: 7,
-//     output_shape: 3,
-//     layer_height_px: 280,
-//     params: 24,
-//   },
-// };
-
 let nodeInfo = [];
 let initialEdges = [];
 
@@ -100,21 +57,20 @@ function parseLayer(layerInfo, setNodes, setEdges) {
         id: `input${i + 1}`,
         sourcePosition: 'right',
         type: 'input',
-        data: { label: `Input-${i + 1}` },
+        // data: { label: `Input-${i + 1}` },
         position: { x: 0, y: 100 * i },
         className: 'clay',
         style: {
           width: '5rem',
           height: '5rem',
           borderRadius: '50%',
-          fontWeight: 'bold',
+          background: 'linear-gradient(to top, #DB4437, #EA8419, #F4B400)',
+          color: '#fff',
+          borderRadius: '50px',
           border: 'none',
-          padding: '2rem .5rem',
-          fontFamily: 'inherit',
-          backgrounBlendMode: 'multiply',
-          color: 'rgb(235, 234, 234)',
-          background: 'linear-gradient(225deg, #181818, #2e2e2e)',
-          boxShadow: '5px 5px 10px #191919, 5px -5px 10px #292929',
+          outline: 'none',
+          cursor: 'pointer',
+          boxShadow:'0 15px 30px rgb(179, 197, 234, .75)',
         },
       };
     } else {
@@ -125,21 +81,20 @@ function parseLayer(layerInfo, setNodes, setEdges) {
         id: `input${i + 1}`,
         sourcePosition: 'right',
         type: 'input',
-        data: { label: `Input-${i + 1}` },
+        // data: { label: `Input-${i + 1}` },
         position: { x: 0, y: 100 * i + yHeight },
         className: 'clay',
         style: {
           width: '5rem',
           height: '5rem',
           borderRadius: '50%',
-          fontWeight: 'bold',
+          background: 'linear-gradient(to top, #DB4437, #EA8419, #F4B400)',
+          color: '#fff',
+          borderRadius: '50px',
           border: 'none',
-          padding: '2rem .5rem',
-          fontFamily: 'inherit',
-          backgrounBlendMode: 'multiply',
-          color: 'rgb(235, 234, 234)',
-          background: 'linear-gradient(225deg, #181818, #2e2e2e)',
-          boxShadow: '5px 5px 10px #191919, 5px -5px 10px #292929',
+          outline: 'none',
+          cursor: 'pointer',
+          boxShadow:'0 15px 30px rgb(179, 197, 234, .75)',
         },
       };
     }
@@ -164,7 +119,7 @@ function parseLayer(layerInfo, setNodes, setEdges) {
             id: `layer${Number(keys) + 1}-node${i + 1}`,
             targetPosition: 'left',
             type: 'output',
-            data: { label: `Output-${i + 1}` }, //`Layer${Number(keys)+1}-Node-${i+1}`
+            // data: { label: `Output-${i + 1}` }, //`Layer${Number(keys)+1}-Node-${i+1}`
             position: { x: (Number(keys) + 1) * 300, y: 100 * i },
             style: {
               width: '5rem',
@@ -186,20 +141,19 @@ function parseLayer(layerInfo, setNodes, setEdges) {
             id: `layer${Number(keys) + 1}-node${i + 1}`,
             targetPosition: 'left',
             type: 'output',
-            data: { label: `Output-${i + 1}` }, //`Layer${Number(keys)+1}-Node-${i+1}`
+            // data: { label: `Output-${i + 1}` }, //`Layer${Number(keys)+1}-Node-${i+1}`
             position: { x: (Number(keys) + 1) * 300, y: 100 * i + yHeight },
             style: {
               width: '5rem',
               height: '5rem',
               borderRadius: '50%',
-              fontWeight: 'bold',
+              background: 'linear-gradient(to top, #DB4437, #EA8419, #F4B400)',
+              color: '#fff',
+              borderRadius: '50px',
               border: 'none',
-              padding: '2rem .5rem',
-              fontFamily: 'inherit',
-              backgrounBlendMode: 'multiply',
-              color: 'rgb(235, 234, 234)',
-              background: 'linear-gradient(225deg, #181818, #2e2e2e)',
-              boxShadow: '5px 5px 10px #191919, 5px -5px 10px #292929',
+              outline: 'none',
+              cursor: 'pointer',
+              boxShadow:'0 15px 30px rgb(179, 197, 234, .75)',
             },
           };
         }
@@ -210,20 +164,19 @@ function parseLayer(layerInfo, setNodes, setEdges) {
             id: `layer${Number(keys) + 1}-node${i + 1}`,
             sourcePosition: 'right',
             targetPosition: 'left',
-            data: { label: `Layer${Number(keys) + 1}-Node-${i + 1}` },
+            // data: { label: `Layer${Number(keys) + 1}-Node-${i + 1}` },
             position: { x: (Number(keys) + 1) * 300, y: 100 * i },
             style: {
               width: '5rem',
               height: '5rem',
               borderRadius: '50%',
-              fontWeight: 'bold',
+              background: 'linear-gradient(to top, #DB4437, #EA8419, #F4B400)',
+              color: '#fff',
+              borderRadius: '50px',
               border: 'none',
-              padding: '2rem .5rem',
-              fontFamily: 'inherit',
-              backgrounBlendMode: 'multiply',
-              color: 'rgb(235, 234, 234)',
-              background: 'linear-gradient(225deg, #181818, #2e2e2e)',
-              boxShadow: '5px 5px 10px #191919, 5px -5px 10px #292929',
+              outline: 'none',
+              cursor: 'pointer',
+              boxShadow:'0 15px 30px rgb(179, 197, 234, .75)',
             },
           };
         } else {
@@ -232,20 +185,19 @@ function parseLayer(layerInfo, setNodes, setEdges) {
             id: `layer${Number(keys) + 1}-node${i + 1}`,
             sourcePosition: 'right',
             targetPosition: 'left',
-            data: { label: `Layer${Number(keys) + 1}-Node-${i + 1}` },
+            // data: { label: `Layer${Number(keys) + 1}-Node-${i + 1}` },
             position: { x: (Number(keys) + 1) * 300, y: 100 * i + yHeight },
             style: {
               width: '5rem',
               height: '5rem',
               borderRadius: '50%',
-              fontWeight: 'bold',
+              background: 'linear-gradient(to top, #DB4437, #EA8419, #F4B400)',
+              color: '#fff',
+              borderRadius: '50px',
               border: 'none',
-              padding: '2rem .5rem',
-              fontFamily: 'inherit',
-              backgrounBlendMode: 'multiply',
-              color: 'rgb(235, 234, 234)',
-              background: 'linear-gradient(225deg, #181818, #2e2e2e)',
-              boxShadow: '5px 5px 10px #191919, 5px -5px 10px #292929',
+              outline: 'none',
+              cursor: 'pointer',
+              boxShadow:'0 15px 30px rgb(179, 197, 234, .75)',
             },
           };
         }
@@ -296,6 +248,9 @@ function parseLayer(layerInfo, setNodes, setEdges) {
         source: initialNodes[nodeNum].nodeInfo.id,
         type: 'simplebezier',
         target: `layer${nextLayerNumber}-node${i + 1}`,
+        style: {
+          stroke: '#F4B400',
+        },
       };
 
       initialEdges.push(edge);
