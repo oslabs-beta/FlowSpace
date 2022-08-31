@@ -3,12 +3,16 @@ import { Link } from 'react-router-dom'
 import './App.scss';
 import HorizontalFlow from './ReactFlowTest.jsx';
 import AnalyticsTile from './AnalyticsTile.jsx';
+import vertivalNavHome from './assets/verticalNav-home.png';
+import vertivalNavGraph from './assets/verticalNav-graph.png';
 
 function App() {
   return (
     <div className="App">
       <div className='Dashboard'>
         <div className='vertical-nav' style={{ width: "5%", height: "100%", float: "left" }}>
+          <img src={vertivalNavHome} style={{marginTop: '2rem'}}></img>
+          <img src={vertivalNavGraph}></img>
         </div>
         <div className='analytics' style={{ width: "90%", height: "100%", float: "right" }}>
           <div className='analytics-header' style={{ width: "100%", height: "10%", float: "right" }}> 
