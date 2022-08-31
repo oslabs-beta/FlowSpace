@@ -1,3 +1,16 @@
+@font-face {
+    font-family: 'Aeonik';
+    src: local('Aeonik-Bold'), url('./assets/Aeonik/Aeonik-Bold.otf') format('otf');
+    src: local('Aeonik-Regular'), url('./assets/Aeonik/Aeonik-Regular.otf') format('otf');
+  }
+  
+  @font-face {
+    font-family: 'HandoSoft';
+    src: local('HandoSoft-Regular'), url('./assets/Hando\ Soft/HandoSoft-Regular.ttf') format('ttf');
+    src: local('HandoSoft-Medium'), url('./assets/Hando\ Soft/HandoSoft-Medium.ttf') format('ttf');
+    src: local('HandoSoft-Black'), url('./assets/Hando\ Soft/HandoSoft-Black.ttf') format('ttf');
+  }
+
 .Analytics-Tile {
     display: flex;
     flex-direction: column;
@@ -12,3 +25,31 @@
              inset -4px -4px 8px 0px rgba(145, 193, 255, 0.30),
              inset 0px 10px 20px 0px rgb(255, 255, 255);
   }
+
+  img {
+    width: 50px;
+    height: auto;
+  }
+
+.tile-value {
+    font-size: 50px;
+    margin-top: 2rem;
+    font-family: HandoSoft-Black;
+}
+
+.tile-title {
+    font-size: 17px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 12px;
+    color: black;
+}
+
+.tile-description {
+    font-family: Aeonik-Regular;
+    text-align: center;
+    width: 235px;
+    font-size: 15px;
+    margin-top: 12px;
+}
+

@@ -29,26 +29,30 @@ function App() {
                 {
                   type:'Loss',
                   value: 0.001,
-                  description: '',
-                  color: '#F4B400'}}/>
+                  description: ' quantifies the difference between the expected outcome and the outcome produced by the model.',
+                  color: '#F4B400',
+                  boldName: 'Loss'}}/>
               <AnalyticsTile info={
                 {
                   type:'Accuracy',
-                  value: 0.001,
-                  description: '',
-                  color: '#F4B400'}}/>
+                  value: '70%',
+                  description: ' determines which model is best for identifying relationships between variables.',
+                  color: '#6AD9A9',
+                  boldName: 'Accuracy'}}/>
               <AnalyticsTile info={
                 {
-                  type:'Weight',
-                  value: 0.001,
-                  description: '',
-                  color: '#F4B400'}}/>
+                  type:'Max Weight',
+                  value: 0.067,
+                  description: ' represents the strength of the connection between nodes. Large weights are a sign of overfitting.',
+                  color: '#68C1E5',
+                  boldName: 'Weight'}}/>
               <AnalyticsTile info={
                 {
                   type:'Activation',
-                  value: 0.001,
-                  description: '',
-                  color: '#F4B400'}}/>
+                  value: 'Tahn',
+                  description: ' functions decide whether a neuron should be activated or not. ',
+                  color: '#FF00B8',
+                  boldName: 'Activation'}}/>
             </div>
           </div>
         </div>

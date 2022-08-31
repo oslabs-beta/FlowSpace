@@ -1,29 +1,43 @@
 import React, { useCallback, useState, useEffect } from 'react';
 import './AnalyticsTile.scss';
+import LossIcon from './assets/Group 1.png';
+import AccuracyIcon from './assets/Group 2.png';
+import WeightIcon from './assets/Group 3.png';
+import ActivationIcon from './assets/Group 4.png';
 
 const AnalyticsTile = ({ info }) => {
     const {
         type,
         value,
         description,
-        color
+        color,
+        boldName,
       } = info;
     
     return (
         <div className='Analytics-Tile'style={{ width: "280px", height: "330px"}}>
             <div className='icon-header'>
                 {type === 'Loss' && (
-                    <svg src='./assets/LossIcon.svg'></svg>
+                    <img src={LossIcon}></img>
                 )}
                 {type === 'Accuracy' && (
-                    <svg src="./assets/AccuracyIcon.svg"></svg>
+                    <img src={AccuracyIcon}></img>
                 )}
-                {type === 'Weight' && (
-                    <svg src="./assets/WeightIcon.svg"></svg>
+                {type === 'Max Weight' && (
+                    <img src={WeightIcon}></img>
                 )}
                 {type === 'Activation' && (
-                    <svg src="./assets/ActivationIcon.svg"></svg>
+                    <img src={ActivationIcon}></img>
                 )}
+            </div>
+            <div className='tile-value' style={{color: `${color}`}}>
+                {value}
+            </div>
+            <div className='tile-title'>
+                {type}
+            </div>
+            <div className='tile-description'>
+                <strong style={{color: `${color}`}}>{boldName}</strong>{description}
             </div>
         </div>
     );
