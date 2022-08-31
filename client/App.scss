@@ -49,8 +49,8 @@
   }
   
   .react-flow-rectangle {
-    width: 50%;
-    height: 50%;
+    width: 95%;
+    height: 100%;
     background-color: #fff;
     border-radius: 30px;
     backdrop-filter: blur(5px);
@@ -70,13 +70,40 @@
     background-color: #fff;
     border-radius: 30px 0px 0px 30px;
   }
-  
-  .analytics {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+
+  .analytics-header p {
+      color: rgb(164, 162, 162);
+      font-family: HelveticaNeue;
+      font-weight: light;
+      font-size: medium;
+      margin-top: 2rem;
+      margin-left: 0rem;
+      margin-bottom: 0px;
   }
+
+  .analytics-header h2 {
+    margin-top: 0px;
+    color: black;
+    font-family: Helvetica;
+    font-weight: bold;
+    margin-left: 0rem;
+  }
+
+  .analytics-overview-header h2 {
+    margin-top: 2rem;
+    color: black;
+    font-family: Helvetica;
+    font-weight: bold;
+    margin-left: 0rem;
+  }
+
+  .analytics-tiles {
+    margin-top: .2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+  }
+  
   /*
   .App-link {
     color: #61dafb;

@@ -1,0 +1,14 @@
+.Analytics-Tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 30px;
+    backdrop-filter: blur(5px);
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow: 0 10px 20px rgb(179, 197, 234, .75),
+             inset 0px 0px 0px 0px rgba(145, 192, 255, 0.75),
+             inset -4px -4px 8px 0px rgba(145, 193, 255, 0.30),
+             inset 0px 10px 20px 0px rgb(255, 255, 255);
+  }
