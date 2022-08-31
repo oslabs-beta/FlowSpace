@@ -317,8 +317,12 @@ const HorizontalFlow = () => {
   );
 
   useEffect(() => {
+    console.log('use is Effected');
     socket.on('incomingData', (data) => {
       parseLayer(data, setNodes, setEdges);
+    });
+    socket.on('sentLossData', (data) => {
+      console.log(data);
     });
   }, []);
 

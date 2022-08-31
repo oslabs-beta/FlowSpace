@@ -8,7 +8,7 @@ const { Server } = require("socket.io");
 
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:8080"
+    origin: ["http://localhost:8080", "http://localhost:8081"]
   }
 });
 
@@ -62,6 +62,11 @@ io.on("connection", (socket) => {
   socket.on('modelData', (data) => {
     const d = parseModel(data);
     io.sockets.emit('incomingData', d);
+  });
+
+  socket.on('lossData', (data) => {
+    console.log(data);
+    io.sockets.emit('sentLossData', data);
   });
 
   socket.on('disconnect', () => {
