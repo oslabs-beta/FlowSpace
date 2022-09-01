@@ -6,10 +6,8 @@ import ReactFlow, {
   addEdge,
   ReactFlowProvider,
 } from 'react-flow-renderer';
-import socketIO from 'socket.io-client';
 import './App.scss';
 
-const socket = socketIO.connect('http://localhost:3333');
 
 class Node {
   constructor(layerInfo, nodeInfo) {
@@ -308,7 +306,7 @@ function parseLayer(layerInfo, setNodes, setEdges) {
   setEdges(initialEdges);
 }
 
-const HorizontalFlow = () => {
+const HorizontalFlow = (props) => {
   const [nodes, setNodes, onNodesChange] = useNodesState([]);
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
   const onConnect = useCallback(
@@ -317,12 +315,8 @@ const HorizontalFlow = () => {
   );
 
   useEffect(() => {
-    console.log('use is Effected');
-    socket.on('incomingData', (data) => {
+    props.socket.on('incomingData', (data) => {
       parseLayer(data, setNodes, setEdges);
-    });
-    socket.on('sentLossData', (data) => {
-      console.log(data);
     });
   }, []);
 
@@ -330,11 +324,11 @@ const HorizontalFlow = () => {
   // const [model, setModel] = useState([]);
 
   // useEffect(() => {
-  //   socket.on('incomingData', (data) => {
+  //   props.socket.on('incomingData', (data) => {
   //     console.log(data);
   //     setModel([...model, data]);
   //   });
-  // }, [socket, model]);
+  // }, [props.socket, model]);
 
   return (
     <ReactFlowProvider>

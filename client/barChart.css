@@ -1,0 +1,22 @@
+.tick line {
+  stroke: #C0C0BB 
+}
+
+.tick text {
+  fill: #635F5D;
+}
+
+.mark {
+  fill: #137B80;
+}
+
+.xAxisLabel {
+  font-size: 1.5em;
+  fill: #635F5D;
+}
+
+.yAxisLabel {
+  transform: rotate(-90deg);
+  font-size: 1.5em;
+  fill: #635F5D;
+}
