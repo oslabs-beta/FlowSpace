@@ -125,6 +125,16 @@
     grid-template-rows: 1fr;
   }
   
+  .react-flow__attribution {
+    background: hsla(0,0%,100%,.5);
+    color: #fff;
+    font-size: 10px;
+    padding: 2px 3px;
+    position: absolute;
+    z-index: 1000;
+    visibility: hidden;
+}
+
   /*
   .App-link {
     color: #61dafb;
@@ -140,6 +150,3 @@
     }
   }
 */
-
-
- 

@@ -5,6 +5,8 @@ import ReactFlow, {
   useEdgesState,
   addEdge,
   ReactFlowProvider,
+  ZoomTo,
+  FitView
 } from 'react-flow-renderer';
 import socketIO from 'socket.io-client';
 import './App.scss';
@@ -18,6 +20,7 @@ class Node {
   }
 }
 
+const diam = '5rem';
 
 let nodeInfo = [];
 let initialEdges = [];
@@ -61,8 +64,8 @@ function parseLayer(layerInfo, setNodes, setEdges) {
         position: { x: 0, y: 100 * i },
         className: 'clay',
         style: {
-          width: '5rem',
-          height: '5rem',
+          width: diam,
+          height: diam,
           borderRadius: '50%',
           background: 'linear-gradient(to top, #DB4437, #EA8419, #F4B400)',
           color: '#fff',
@@ -85,8 +88,8 @@ function parseLayer(layerInfo, setNodes, setEdges) {
         position: { x: 0, y: 100 * i + yHeight },
         className: 'clay',
         style: {
-          width: '5rem',
-          height: '5rem',
+          width: diam,
+          height: diam,
           borderRadius: '50%',
           background: 'linear-gradient(to top, #DB4437, #EA8419, #F4B400)',
           color: '#fff',
@@ -122,8 +125,8 @@ function parseLayer(layerInfo, setNodes, setEdges) {
             // data: { label: `Output-${i + 1}` }, //`Layer${Number(keys)+1}-Node-${i+1}`
             position: { x: (Number(keys) + 1) * 300, y: 100 * i },
             style: {
-              width: '5rem',
-              height: '5rem',
+              width: diam,
+              height: diam,
               borderRadius: '50%',
               fontWeight: 'bold',
               border: 'none',
@@ -144,8 +147,8 @@ function parseLayer(layerInfo, setNodes, setEdges) {
             // data: { label: `Output-${i + 1}` }, //`Layer${Number(keys)+1}-Node-${i+1}`
             position: { x: (Number(keys) + 1) * 300, y: 100 * i + yHeight },
             style: {
-              width: '5rem',
-              height: '5rem',
+              width: diam,
+              height: diam,
               borderRadius: '50%',
               background: 'linear-gradient(to top, #DB4437, #EA8419, #F4B400)',
               color: '#fff',
@@ -167,8 +170,8 @@ function parseLayer(layerInfo, setNodes, setEdges) {
             // data: { label: `Layer${Number(keys) + 1}-Node-${i + 1}` },
             position: { x: (Number(keys) + 1) * 300, y: 100 * i },
             style: {
-              width: '5rem',
-              height: '5rem',
+              width: diam,
+              height: diam,
               borderRadius: '50%',
               background: 'linear-gradient(to top, #DB4437, #EA8419, #F4B400)',
               color: '#fff',
@@ -188,8 +191,8 @@ function parseLayer(layerInfo, setNodes, setEdges) {
             // data: { label: `Layer${Number(keys) + 1}-Node-${i + 1}` },
             position: { x: (Number(keys) + 1) * 300, y: 100 * i + yHeight },
             style: {
-              width: '5rem',
-              height: '5rem',
+              width: diam,
+              height: diam,
               borderRadius: '50%',
               background: 'linear-gradient(to top, #DB4437, #EA8419, #F4B400)',
               color: '#fff',
@@ -270,6 +273,10 @@ const HorizontalFlow = () => {
     (params) => setEdges((els) => addEdge(params, els)),
     []
   );
+
+//   const onLoad = (reactFlowInstance) => {
+//     reactFlowInstance.fitView();
+// }
 
   useEffect(() => {
     socket.on('incomingData', (data) => {
