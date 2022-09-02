@@ -4,11 +4,17 @@ import socketIO from 'socket.io-client';
 
 const socket = socketIO.connect('http://localhost:3333');
 
-class HandShake {
+export class HandShake {
   constructor(model) {
     this.model = model;
-    socket.emit('modelData', this.model);
+    this.socket = socket;
+    // this.socket = this.connect();
+    this.socket.emit('modelData', this.model);
   }
+
+  // connect() {
+  //   return socketIO.connect('http://localhost:3333');
+  // }
 
     
     // socketServer side
@@ -37,9 +43,6 @@ class HandShake {
   // }
 }
 
-
-
-
-
-
-export default HandShake;
+export function lossCallback(epoch, log) {
+  socket.emit('lossData', {epoch, loss: log.loss});
+}

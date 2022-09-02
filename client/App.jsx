@@ -6,6 +6,12 @@ import AnalyticsTile from './AnalyticsTile.jsx';
 import vertivalNavHome from './assets/verticalNav-home.png';
 import vertivalNavGraph from './assets/verticalNav-graph.png';
 import LogoFS from './assets/Logo.png';
+import socketIO from 'socket.io-client';
+import LossPlot from './LossPlot.jsx';
+import LossBar from './LossBar.jsx';
+
+const socket = socketIO.connect('http://localhost:3333');
+
 
 function App() {
   return (
@@ -22,7 +28,7 @@ function App() {
           </div>
           <div className='analytics-architecture' style={{ width: "100%", height: "40%", float: "right" }}>
             <div className="react-flow-rectangle">
-              <HorizontalFlow />
+              <HorizontalFlow socket={socket} />
             </div>
           </div>
           <div className='analytics-overview-header' style={{ width: "100%", height: "8%", float: "right" }}>
@@ -62,6 +68,8 @@ function App() {
           </div>
         </div>
       </div>
+      {/* <LossPlot socket={socket} />
+      <LossBar socket={socket} /> */}
     </div>
   );
 }

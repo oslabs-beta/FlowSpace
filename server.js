@@ -8,7 +8,7 @@ const { Server } = require("socket.io");
 
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:8080"
+    origin: ["http://localhost:8080", "http://localhost:8081"]
   }
 });
 
@@ -56,6 +56,8 @@ const parseModel = (model) => {
   return layer;
 }
 
+const lossData = [];
+
 io.on("connection", (socket) => {
   console.log("client connected");
 
@@ -64,8 +66,22 @@ io.on("connection", (socket) => {
     io.sockets.emit('incomingData', d);
   });
 
+  socket.on('lossData', (data) => {
+    // console.log(data);
+    io.sockets.emit('sentLossData', data);
+    // lossData.push(data);
+    // console.log('lossData called, loss data: ', lossData);
+  });
+
+  // socket.on('graphTab', () => {
+  //   console.log('graphTab called, loss data: ', lossData);
+  //   lossData.forEach((el) => {
+  //     io.sockets.emit('sentLossData', el);
+  //   });
+  // });
+
   socket.on('disconnect', () => {
-    console.log('client disconnected')
+    console.log('client disconnected');
   })
 });
 
