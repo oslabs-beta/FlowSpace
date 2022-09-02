@@ -11,7 +11,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.js$|jsx/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
@@ -22,12 +22,18 @@ module.exports = {
       },
       {
         test: /\.s?css$/,
-        exclude: /node_modules/,
+        exclude:/(node_modules|bower_components)/,
         use: [
           { loader: 'style-loader' },
           { loader: 'css-loader' }
         ]
       },
+      {
+        test: /\.(jpe?g|png|gif|woff|woff2|eot|ttf|svg)(\?[a-z0-9=.]+)?$/,
+        use: {
+          loader: 'url-loader?limit=100000'
+        }
+    },
       // {
       //   test: /\.scss/,
       //   exclude: /node_modules/,
