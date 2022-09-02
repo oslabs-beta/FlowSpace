@@ -274,9 +274,9 @@ const HorizontalFlow = () => {
     []
   );
 
-//   const onLoad = (reactFlowInstance) => {
-//     reactFlowInstance.fitView();
-// }
+  const onLoad = (reactFlowInstance) => {
+    reactFlowInstance.fitView();
+}
 
   useEffect(() => {
     socket.on('incomingData', (data) => {
@@ -303,6 +303,11 @@ const HorizontalFlow = () => {
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
         fitView
+        // defaultZoom={50}
+        // defaultPosition={[50,50]}
+        minZoom={-100}
+        maxZoom={1000}
+        onInit={onLoad}
         attributionPosition="bottom-left"
       ></ReactFlow>
     </ReactFlowProvider>
