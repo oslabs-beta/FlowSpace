@@ -1,12 +1,12 @@
 import React, { useCallback, useState, useEffect } from 'react';
 import AnalyticsTile from './AnalyticsTile.jsx';
 
-const LossAnalytics = (props) => {
+const LossAnalytics = ({ socket }) => {
 
   const [ lossData, setLossData ] = useState();
 
   useEffect(() => {
-    props.socket.on('sentLossData', (lossData) => {
+    socket.on('sentLossData', (lossData) => {
       setLossData(lossData.loss.toFixed(10).toString().slice(1));
     });
   }, []);
