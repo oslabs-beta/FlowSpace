@@ -49,7 +49,7 @@ function App() {
               <AnalyticsTile info={
                 {
                   type:'Max Weight',
-                  value: '00.067',
+                  value: '.067187',
                   description: ' represents the strength of the connection between nodes. Large weights are a sign of overfitting.',
                   color: '#68C1E5',
                   boldName: 'Weight'}}/>
