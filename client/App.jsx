@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
 import './App.scss';
 import HorizontalFlow from './ReactFlowTest.jsx';
@@ -9,11 +9,13 @@ import LogoFS from './assets/Logo.png';
 import socketIO from 'socket.io-client';
 import LossPlot from './LossPlot.jsx';
 import LossBar from './LossBar.jsx';
+import LossAnalytics from './lossAnalytics.jsx';
 
 const socket = socketIO.connect('http://localhost:3333');
 
 
 function App() {
+
   return (
     <div className="App">
       <div className='Dashboard'>
@@ -36,13 +38,7 @@ function App() {
           </div>
           <div className='analytics-overview' style={{ width: "100%", height: "42%", float: "right" }}>
             <div className='analytics-tiles'>
-              <AnalyticsTile info={
-                {
-                  type:'Loss',
-                  value: 0.001,
-                  description: ' quantifies the difference between the expected outcome and the outcome produced by the model.',
-                  color: '#F4B400',
-                  boldName: 'Loss'}}/>
+              <LossAnalytics socket={socket} />
               <AnalyticsTile info={
                 {
                   type:'Accuracy',
@@ -53,7 +49,7 @@ function App() {
               <AnalyticsTile info={
                 {
                   type:'Max Weight',
-                  value: 0.067,
+                  value: '.067187',
                   description: ' represents the strength of the connection between nodes. Large weights are a sign of overfitting.',
                   color: '#68C1E5',
                   boldName: 'Weight'}}/>
