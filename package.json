@@ -1,5 +1,5 @@
 {
-  "name": "FlowState",
+  "name": "stabrabbit7",
   "version": "1.0.3",
   "description": "",
   "main": "handshake.js",
@@ -44,7 +44,7 @@
     "web-vitals": "^2.1.4"
   },
   "bin": {
-    "FlowState": "./server.js"
+    "stabrabbit7": "./server.js"
   },
   "devDependencies": {
     "svg-inline-loader": "^0.8.2",
