@@ -66,19 +66,10 @@ io.on("connection", (socket) => {
   io.sockets.emit('incomingData', d); 
   });
 
-  socket.on('lossData', (model, data) => {
+  socket.on('lossData', (result, model, data) => {
     const d = parseModel(model); 
-    // console.log(idk)
     io.sockets.emit('incomingData', d); 
     io.sockets.emit('sentLossData', data);
-    //let x = JSON.parse(model)
-    
-    // lossData.push(data);
-    // console.log('lossData called, loss data: ', lossData);
-  });
-
-  socket.on('hey', (idk) => {
-    console.log(idk)
   });
 
   // socket.on('graphTab', () => {
