@@ -15,7 +15,7 @@ const AnalyticsTile = ({ info }) => {
       } = info;
     
     return (
-        <div className='Analytics-Tile'style={{ width: "280px", height: "330px"}}>
+        <div className='Analytics-Tile' style={{ width: "280px", height: "280px"}}>
             <div className='icon-header'>
                 {type === 'Loss' && (
                     <img src={LossIcon}></img>
