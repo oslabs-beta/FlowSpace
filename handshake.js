@@ -40,7 +40,7 @@ export class HandShake {
     // }
     // console.log(x);
     //console.log(arr)
-    socket.emit('lossData', result, this.model, { epoch, loss: log.loss } )
+    socket.emit('modelInfo', result, this.model, { epoch, loss: log.loss } )
   }
 
 }

@@ -10,6 +10,7 @@ import socketIO from 'socket.io-client';
 import LossPlot from './LossPlot.jsx';
 import LossBar from './LossBar.jsx';
 import LossAnalytics from './lossAnalytics.jsx';
+import WeightAnalytics from './weightAnalytics.jsx';
 
 const socket = socketIO.connect('http://localhost:3333');
 
@@ -46,13 +47,7 @@ function App() {
                   description: ' determines which model is best for identifying relationships between variables.',
                   color: '#6AD9A9',
                   boldName: 'Accuracy'}}/>
-              <AnalyticsTile info={
-                {
-                  type:'Max Weight',
-                  value: '.067187',
-                  description: ' represents the strength of the connection between nodes. Large weights are a sign of overfitting.',
-                  color: '#68C1E5',
-                  boldName: 'Weight'}}/>
+              <WeightAnalytics socket={socket} />
               <AnalyticsTile info={
                 {
                   type:'Activation',

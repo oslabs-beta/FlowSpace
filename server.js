@@ -66,10 +66,11 @@ io.on("connection", (socket) => {
   io.sockets.emit('incomingData', d); 
   });
 
-  socket.on('lossData', (result, model, data) => {
-    const d = parseModel(model); 
-    io.sockets.emit('incomingData', d); 
-    io.sockets.emit('sentLossData', data);
+  socket.on('modelInfo', (maxWeight, model, loss) => {
+    // const d = parseModel(model); 
+    // io.sockets.emit('incomingData', d); 
+    io.sockets.emit('sentLossData', loss);
+    io.sockets.emit('sentWeightData', maxWeight);
   });
 
   // socket.on('graphTab', () => {
