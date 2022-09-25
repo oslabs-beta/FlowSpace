@@ -45,10 +45,10 @@ export class HandShake {
     const normalizedData = []
     for(let weight = 0; weight < allWeights.length; weight++) {
       // normalized the data between 1 and 10
-      let normalizedWeight = 0.8 + ( ((Math.abs(allWeights[weight]) - minimum) * (10 - 0.5)) / Math.abs(result) - minimum)
+      let normalizedWeight = 0.8 + ( ((Math.abs(allWeights[weight]) - minimum) * (10 - 0.8)) / Math.abs(result) - minimum)
       normalizedData.push(normalizedWeight) 
     }
-    console.log(minimum)
+    // console.log(minimum)
     console.log("allAbsMax -> ", allAbsMax);
     console.log("max of allAbsMax -> ", result);
     //   let holder = x[i].getWeights()[0].dataSync()[0]
@@ -56,7 +56,7 @@ export class HandShake {
     // }
     // console.log(x);
     //console.log(arr)
-    console.log(normalizedData)
+    console.log('hiiiiiii', normalizedData)
     socket.emit('modelInfo', result, this.model, { epoch, loss: log.loss } )
     socket.emit('modelData', this.model, normalizedData)
 

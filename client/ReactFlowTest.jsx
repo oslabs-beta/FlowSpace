@@ -212,6 +212,8 @@ function parseLayer(layerInfo, setNodes, setEdges, allWeights) {
     }
   }
 
+  // used to track the edge thickness based off Weight
+  let counter = 0;
   const getNextLayerShape = (initialNodes, layerNumber) => {
     let nextLayerShape = 0;
     for (let i = 0; i < initialNodes.length; i++) {
@@ -227,7 +229,7 @@ function parseLayer(layerInfo, setNodes, setEdges, allWeights) {
     let currentLayerShape = 0;
     let nextLayerNumber = 0;
     let nextLayerShape = 0;
-    console.log('nodenum', nodeNum, allWeights[nodeNum])
+    let layerNumber;
 
     if (nodeNum < layerInfo[0].input_shape) {
       currentLayerShape = Number(initialNodes[nodeNum].layerInfo.output_shape);
@@ -241,7 +243,9 @@ function parseLayer(layerInfo, setNodes, setEdges, allWeights) {
       );
       nextLayerNumber = initialNodes[nodeNum].layerInfo.layer_number + 2;
     }
+    
     for (let i = 0; i < nextLayerShape; i++) {
+      console.log(initialNodes[nodeNum].nodeInfo.id)
       const edge = {
         id: `${initialNodes[nodeNum].nodeInfo.id}-layer${nextLayerNumber}-node${
           i + 1
@@ -251,9 +255,13 @@ function parseLayer(layerInfo, setNodes, setEdges, allWeights) {
         target: `layer${nextLayerNumber}-node${i + 1}`,
         style: {
           stroke: '#F4B400',
-          strokeWidth: Math.abs(allWeights[nodeNum])
+          strokeWidth: allWeights[counter]
         },
       };
+      console.log(allWeights[counter])
+      counter++
+
+    
 
       initialEdges.push(edge);
     }
