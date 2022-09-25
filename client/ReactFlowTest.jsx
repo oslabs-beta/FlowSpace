@@ -23,7 +23,7 @@ const diam = '5rem';
 let nodeInfo = [];
 let initialEdges = [];
 
-function parseLayer(layerInfo, setNodes, setEdges) {
+function parseLayer(layerInfo, setNodes, setEdges, allWeights) {
 
   // write function to get the biggest layer height (most nodes) in the model
   const getBiggestLayerHeight = (layerInfo) => {
@@ -227,6 +227,7 @@ function parseLayer(layerInfo, setNodes, setEdges) {
     let currentLayerShape = 0;
     let nextLayerNumber = 0;
     let nextLayerShape = 0;
+    console.log('nodenum', nodeNum, allWeights[nodeNum])
 
     if (nodeNum < layerInfo[0].input_shape) {
       currentLayerShape = Number(initialNodes[nodeNum].layerInfo.output_shape);
@@ -240,7 +241,6 @@ function parseLayer(layerInfo, setNodes, setEdges) {
       );
       nextLayerNumber = initialNodes[nodeNum].layerInfo.layer_number + 2;
     }
-
     for (let i = 0; i < nextLayerShape; i++) {
       const edge = {
         id: `${initialNodes[nodeNum].nodeInfo.id}-layer${nextLayerNumber}-node${
@@ -251,6 +251,7 @@ function parseLayer(layerInfo, setNodes, setEdges) {
         target: `layer${nextLayerNumber}-node${i + 1}`,
         style: {
           stroke: '#F4B400',
+          strokeWidth: Math.abs(allWeights[nodeNum])
         },
       };
 
@@ -277,9 +278,9 @@ const HorizontalFlow = (props) => {
 }
 
   useEffect(() => {
-    props.socket.on('incomingData', (data) => {
-      parseLayer(data, setNodes, setEdges);
-    });
+    props.socket.on('incomingData', (data, allWeights) => {
+      parseLayer(data, setNodes, setEdges, allWeights);
+    })
   }, []);
 
   //SocketIO State

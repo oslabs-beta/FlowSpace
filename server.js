@@ -61,9 +61,9 @@ const lossData = [];
 io.on("connection", (socket) => {
   console.log("client connected");
 
-  socket.on('modelData', (data) => {
+  socket.on('modelData', (data, allWeights) => {
   const d = parseModel(data);
-  io.sockets.emit('incomingData', d); 
+  io.sockets.emit('incomingData', d, allWeights); 
   });
 
   socket.on('modelInfo', (maxWeight, model, loss) => {
@@ -71,6 +71,7 @@ io.on("connection", (socket) => {
     // io.sockets.emit('incomingData', d); 
     io.sockets.emit('sentLossData', loss);
     io.sockets.emit('sentWeightData', maxWeight);
+    //io.sockets.emit('modelData', model, allWeights);
   });
 
   // socket.on('graphTab', () => {
