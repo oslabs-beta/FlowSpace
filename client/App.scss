@@ -78,26 +78,14 @@
     font-size: calc(10px + 2vmin);*/
   }
 
-  .vertical-nav {
-    background-color: #fff;
-    border-radius: 30px 0px 0px 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
-  }
-
-  .vertical-nav img {
-    width: 30px;
-    height: auto;
-    margin-bottom: 60px;
+  .container {
+    margin-left: 3rem;
   }
 
   .analytics-header p {
       color: rgb(164, 162, 162);
       font-family: HandoSoft-Medium;
       font-size: 15px;
-      margin-top: 2rem;
       margin-left: 0rem;
       margin-bottom: 0px;
   }
@@ -111,7 +99,7 @@
   }
 
   .analytics-overview-header h2 {
-    margin-top: 2rem;
+    margin-top: 1.5rem;
     color: black;
     font-family: Aeonik-Bold;
     font-size: 20px;
@@ -119,7 +107,7 @@
   }
 
   .analytics-tiles {
-    margin-top: .2rem;
+    width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr;
