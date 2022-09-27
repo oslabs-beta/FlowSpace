@@ -16,7 +16,7 @@ const LossAnalytics = ({ socket }) => {
         {
           type:'Loss',
           value: lossData,
-          description: ' quantifies the difference between the expected outcome and the outcome produced by the model.',
+          description: ' shows how well your algorithm models your data.',
           color: '#F4B400',
           boldName: 'Loss'}}/>
     );
