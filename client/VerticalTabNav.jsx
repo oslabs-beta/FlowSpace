@@ -15,6 +15,7 @@ import LossPlot from './LossPlot.jsx';
 import LossBar from './LossBar.jsx';
 import LossAnalytics from './lossAnalytics.jsx';
 import { createTheme } from '@mui/material/styles';
+import WeightAnalytics from './weightAnalytics.jsx';
 
 const theme = createTheme({
   palette: {
@@ -118,13 +119,7 @@ export default function VerticalTabs() {
                 description: ' shows which model is best for identifying relationships.',
                 color: '#6AD9A9',
                 boldName: 'Accuracy'}}/>
-            <AnalyticsTile info={
-              {
-                type:'Max Weight',
-                value: '.067187',
-                description: ' represents the strength of the connection between nodes.',
-                color: '#68C1E5',
-                boldName: 'Weight'}}/>
+            <WeightAnalytics socket={socket} />
             <AnalyticsTile info={
               {
                 type:'Activation',
