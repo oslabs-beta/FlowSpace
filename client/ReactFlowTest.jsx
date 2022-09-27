@@ -255,10 +255,10 @@ function parseLayer(layerInfo, setNodes, setEdges, allWeights) {
         target: `layer${nextLayerNumber}-node${i + 1}`,
         style: {
           stroke: '#F4B400',
-          strokeWidth: allWeights[counter]
+          strokeWidth: allWeights[counter] || 1
         },
       };
-      console.log(allWeights[counter])
+
       counter++
 
     
