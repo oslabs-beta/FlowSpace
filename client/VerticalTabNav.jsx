@@ -69,6 +69,10 @@ function a11yProps(index) {
   };
 }
 
+function clickEvent() {
+  socket.emit("onClick");
+}
+
 export default function VerticalTabs() {
   const [value, setValue] = React.useState(0);
 
@@ -92,7 +96,10 @@ export default function VerticalTabs() {
         indicatorColor={theme.palette.primary.main}
         sx={{ width: '5%', float: 'left'}}
       >
-        <Tab icon={<Logo />} {...a11yProps(0)} />
+        <Tab 
+        icon={<Logo />} {...a11yProps(0)} 
+        onClick={clickEvent}
+        />
         <Tab icon={<GraphIcon />}{...a11yProps(1)} />
       </Tabs>
       <TabPanel value={value} index={0} style={{backgroundColor: '#FAFBFF',width:'95%',float: 'right',borderRadius: '0px 30px 30px 0px'}}>
