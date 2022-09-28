@@ -80,6 +80,8 @@ export default function VerticalTabs() {
     setValue(newValue);
   };
 
+  useEffect(() => clickEvent, []);
+
   return (
     <Box
       sx={{
