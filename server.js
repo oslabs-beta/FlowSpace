@@ -56,6 +56,8 @@ const parseModel = (model) => {
   return layer;
 }
 
+
+
 const lossData = [];
 
 io.on("connection", (socket) => {
