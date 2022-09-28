@@ -253,9 +253,10 @@ function parseLayer(layerInfo, setNodes, setEdges, allWeights) {
         source: initialNodes[nodeNum].nodeInfo.id,
         type: 'simplebezier',
         target: `layer${nextLayerNumber}-node${i + 1}`,
+        // label: allWeights[counter],
         style: {
           stroke: '#F4B400',
-          strokeWidth: allWeights[counter]
+          strokeWidth: allWeights ? allWeights[counter] : 1.5 // default thickness until weight data comes in
         },
       };
 
@@ -290,16 +291,6 @@ const HorizontalFlow = (props) => {
       parseLayer(data, setNodes, setEdges, allWeights);
     })
   }, []);
-
-  //SocketIO State
-  // const [model, setModel] = useState([]);
-
-  // useEffect(() => {
-  //   props.socket.on('incomingData', (data) => {
-  //     console.log(data);
-  //     setModel([...model, data]);
-  //   });
-  // }, [props.socket, model]);
 
   return (
     <ReactFlowProvider>

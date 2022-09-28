@@ -71,16 +71,13 @@ io.on("connection", (socket) => {
 		io.sockets.emit("incomingData", d, allWeights);
 	});
 
-	socket.on("modelInfo", (maxWeight, model, loss) => {
-		// const d = parseModel(model);
-		// io.sockets.emit('incomingData', d);
+	socket.on("modelInfo", (maxWeight, loss) => {
 		io.sockets.emit("sentLossData", loss);
 		lossData.push(loss);
 		//console.log(`lossData size is ${lossData.length}`);
 		io.sockets.emit("sentWeightData", maxWeight);
 		weightData.push(maxWeight);
 		//console.log(`weightData size is ${weightData.length}`);
-		//io.sockets.emit('modelData', model, allWeights);
 	});
 	
 	socket.on("onClick", () => {
@@ -89,13 +86,6 @@ io.on("connection", (socket) => {
 		io.sockets.emit("sentLossData", lossData[lossData.length - 1]);
 		io.sockets.emit("sentWeightData", weightData[weightData.length - 1]);
 	});
-
-	// socket.on('graphTab', () => {
-	//   console.log('graphTab called, loss data: ', lossData);
-	//   lossData.forEach((el) => {
-	//     io.sockets.emit('sentLossData', el);
-	//   });
-	// });
 
 	socket.on("disconnect", () => {
 		console.log("client disconnected");
