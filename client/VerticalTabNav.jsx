@@ -16,6 +16,7 @@ import LossBar from './LossBar.jsx';
 import LossAnalytics from './lossAnalytics.jsx';
 import { createTheme } from '@mui/material/styles';
 import WeightAnalytics from './weightAnalytics.jsx';
+import BiasAnalytics from './biasAnalytics.jsx';
 
 const theme = createTheme({
   palette: {
@@ -121,13 +122,7 @@ export default function VerticalTabs() {
         <div className='analytics-overview' style={{ width: "100%", height: "42%", float: "right" }}>
           <div className='analytics-tiles'>
             <LossAnalytics socket={socket} />
-            <AnalyticsTile info={
-              {
-                type:'Accuracy',
-                value: '70%',
-                description: ' shows which model is best for identifying relationships.',
-                color: '#6AD9A9',
-                boldName: 'Accuracy'}}/>
+            <BiasAnalytics socket={socket} />
             <WeightAnalytics socket={socket} />
             <AnalyticsTile info={
               {

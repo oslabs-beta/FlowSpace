@@ -56,9 +56,10 @@ const parseModel = (model) => {
 };
 
 const lossData = [];
-const weightData = [];
+let weightData;
 let savedModel;
 const allWeightData = [];
+let biasData;
 
 io.on("connection", (socket) => {
 	console.log("client connected");
@@ -71,20 +72,22 @@ io.on("connection", (socket) => {
 		io.sockets.emit("incomingData", d, allWeights);
 	});
 
-	socket.on("modelInfo", (maxWeight, loss) => {
+	socket.on("modelInfo", (maxBias, maxWeight, loss) => {
 		io.sockets.emit("sentLossData", loss);
 		lossData.push(loss);
 		//console.log(`lossData size is ${lossData.length}`);
 		io.sockets.emit("sentWeightData", maxWeight);
-		weightData.push(maxWeight);
+    io.sockets.emit('sentBiasData', maxBias)
+		weightData = maxWeight;
+    biasData = maxBias;
 		//console.log(`weightData size is ${weightData.length}`);
 	});
 	
 	socket.on("onClick", () => {
 		io.sockets.emit("incomingData", savedModel, allWeightData[allWeightData.length - 1]);
-		//console.log(allWeightData[allWeightData.length - 1]);
 		io.sockets.emit("sentLossData", lossData[lossData.length - 1]);
-		io.sockets.emit("sentWeightData", weightData[weightData.length - 1]);
+		io.sockets.emit("sentWeightData", weightData);
+    io.sockets.emit("sentBiasData", biasData);
 	});
 
 	socket.on("disconnect", () => {

@@ -16,18 +16,42 @@ export class HandShake {
     let x = this.model.layers
     const allWeights = [];
     const allAbsMax = [];
+    const allBiasAbsMax = [];
     // Let's get the max of each layer
     for (let i = 0; i < x.length; i++) { 
+      // This gets the weights in each layer and returns an array of weights
       let arr = x[i].getWeights()[0].dataSync()
+      // allWeights is an array that contains the weights of all the layers
+      // allWeights is used to help in rendering the connection thickness
       allWeights.push(...Array.from(arr))
+      // We then find the max and min values in the array
       let max = Math.max(...arr)
       let min = Math.min(...arr)
+      // The maximum absolute value is then stored in allAbsMax
       if(Math.abs(max) < Math.abs(min)) {
         allAbsMax.push(min)
       } else {
         allAbsMax.push(max)
       }
     }
+
+    for (let i = 0; i < x.length; i++) { 
+      // This gets the weights in each layer and returns an array of weights
+      let biasArr = x[i].getWeights()[1].dataSync()
+      // We then find the max and min values in the array
+      let max = Math.max(...biasArr)
+      let min = Math.min(...biasArr)
+      // The maximum absolute value is then stored in allAbsMax
+      if(Math.abs(max) < Math.abs(min)) {
+        allBiasAbsMax.push(min)
+      } else {
+        allBiasAbsMax.push(max)
+      }
+    }
+
+    const biasResult = allBiasAbsMax.reduce(
+      (prev, current) => Math.abs(current) > Math.abs(prev) ? current : prev
+    , 0);
 
     // Result will be the max of node weights of all the layers
     const result = allAbsMax.reduce(
@@ -46,9 +70,10 @@ export class HandShake {
       normalizedData.push(normalizedWeight) 
     }
     console.log("allAbsMax -> ", allAbsMax);
+    console.log("allBiasAbsMax -> ", biasResult);
     console.log("max of allAbsMax -> ", result);
     console.log('hiiiiiii', normalizedData)
-    socket.emit('modelInfo', result, { epoch, loss: log.loss } )
+    socket.emit('modelInfo', biasResult, result, { epoch, loss: log.loss } )
     socket.emit('modelData', this.model, normalizedData)
 
   }
