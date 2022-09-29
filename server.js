@@ -20,6 +20,14 @@ app.get("/bundle.js", (req, res) => {
 	res.sendFile(__dirname + "/build/bundle.js");
 });
 
+app.get("/export", (req, res) => {
+  res.set({
+    'Content-Type': 'application/json-attachment',
+    'content-disposition': 'attachment; filename="export.json"'
+  });
+  res.send(JSON.stringify(lossData));
+});
+
 // model must be doubly parsed prior to using this function
 const parseModel = (model) => {
 	model = JSON.parse(model);
