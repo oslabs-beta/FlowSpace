@@ -9,6 +9,9 @@ const BiasAnalytics = ({ socket }) => {
     socket.on('sentBiasData', (BiasData) => {
       setBiasData(BiasData.toFixed(6).toString());
     });
+    return () => {
+        socket.off('sentBiasData')
+    }
   }, []);
     
     return (
