@@ -289,7 +289,10 @@ const HorizontalFlow = (props) => {
   useEffect(() => {
     props.socket.on('incomingData', (data, allWeights) => {
       parseLayer(data, setNodes, setEdges, allWeights);
-    })
+    });
+    return () => {
+      props.socket.off('incomingData');
+    }
   }, []);
 
   return (

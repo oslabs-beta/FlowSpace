@@ -142,7 +142,6 @@ export default function VerticalTabs() {
         </div>
       </TabPanel>
       <TabPanel value={value} index={1} style={{backgroundColor: '#FAFBFF',width:'95%',float: 'right',borderRadius: '0px 30px 30px 0px' }}>
-        Item Two
          <LossPlot socket={socket} />
          <ExportButton />
       </TabPanel>

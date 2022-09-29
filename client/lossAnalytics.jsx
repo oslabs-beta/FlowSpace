@@ -6,9 +6,12 @@ const LossAnalytics = ({ socket }) => {
   const [ lossData, setLossData ] = useState();
 
   useEffect(() => {
-    socket.on('sentLossData', (lossData) => {
-      setLossData(lossData.loss.toFixed(6).toString().slice(1));
+    socket.on('sentLossDataAnalytics', (lossData) => {
+      setLossData(lossData[lossData.length - 1].loss.toFixed(6).toString().slice(1));
     });
+    return () => {
+      socket.off('sentLossDataAnalytics');
+    }
   }, []);
     
     return (

@@ -80,18 +80,16 @@ io.on("connection", (socket) => {
 	});
 
 	socket.on("modelInfo", (maxWeight, loss) => {
-		io.sockets.emit("sentLossData", loss);
 		lossData.push(loss);
-		//console.log(`lossData size is ${lossData.length}`);
+		io.sockets.emit("sentLossData", lossData);
 		io.sockets.emit("sentWeightData", maxWeight);
 		weightData.push(maxWeight);
-		//console.log(`weightData size is ${weightData.length}`);
 	});
 	
 	socket.on("onClick", () => {
 		io.sockets.emit("incomingData", savedModel, allWeightData[allWeightData.length - 1]);
-		//console.log(allWeightData[allWeightData.length - 1]);
-		io.sockets.emit("sentLossData", lossData[lossData.length - 1]);
+		io.sockets.emit("sentLossDataPlot", lossData);
+		io.sockets.emit("sentLossDataAnalytics", lossData);
 		io.sockets.emit("sentWeightData", weightData[weightData.length - 1]);
 	});
 
