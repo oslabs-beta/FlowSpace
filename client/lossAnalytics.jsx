@@ -12,7 +12,7 @@ const LossAnalytics = ({ socket }) => {
   }, []);
     
     return (
-      <AnalyticsTile info={
+      <AnalyticsTile style={{ marginLeft: ".5rem"}} info={
         {
           type:'Loss',
           value: lossData,

@@ -7,7 +7,7 @@ const WeightAnalytics = ({ socket }) => {
 
   useEffect(() => {
     socket.on('sentWeightData', (WeightData) => {
-      setWeightData(WeightData.toFixed(6).toString());
+      setWeightData(WeightData.toFixed(4).toString());
     });
   }, []);
     

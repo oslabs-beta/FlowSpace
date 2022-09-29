@@ -54,14 +54,10 @@
     border-radius: 30px;
     background-color: #FAFBFF;
     box-shadow: 0 10px 20px rgb(179, 197, 234, .75);
-    /*display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;*/
   }
   
   .react-flow-rectangle {
-    width: 95%;
+    width: 99.5%;
     height: 100%;
     background-color: #fff;
     border-radius: 30px;
@@ -71,11 +67,6 @@
              inset 0px 0px 0px 0px rgba(145, 192, 255, 0.75),
              inset -4px -4px 8px 0px rgba(145, 193, 255, 0.30),
              inset 0px 10px 20px 0px rgb(255, 255, 255);
-    /*display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);*/
   }
 
   .container {
@@ -106,17 +97,34 @@
     margin-left: 0rem;
   }
 
-  
+
   .analytics-tiles {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    height:42%;
+    width: 102.4%;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-top: 1rem;
+    margin-left: -1.5rem;
+    padding-left: 1.5rem;
+
+    .tile {
+      flex: 0 0 auto;
+    }
   } 
+
+  .analytics-tiles::-webkit-scrollbar {
+    display: none;
+  }
+
   
   .react-flow__attribution {
     visibility: hidden;
 }
 
+.tabIcon {
+  margin: 0 auto;
+}
   /*
   .App-link {
     color: #61dafb;
