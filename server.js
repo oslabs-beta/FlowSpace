@@ -81,7 +81,8 @@ io.on("connection", (socket) => {
 
 	socket.on("modelInfo", (maxWeight, loss) => {
 		lossData.push(loss);
-		io.sockets.emit("sentLossData", lossData);
+		io.sockets.emit("sentLossDataPlot", lossData);
+		io.sockets.emit("sentLossDataAnalytics", lossData);
 		io.sockets.emit("sentWeightData", maxWeight);
 		weightData.push(maxWeight);
 	});
