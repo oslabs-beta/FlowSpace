@@ -24,6 +24,7 @@ let nodeInfo = [];
 let initialEdges = [];
 
 function parseLayer(layerInfo, setNodes, setEdges, allWeights) {
+  if (!layerInfo) return;
 
   // write function to get the biggest layer height (most nodes) in the model
   const getBiggestLayerHeight = (layerInfo) => {

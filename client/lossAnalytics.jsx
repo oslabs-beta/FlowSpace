@@ -7,6 +7,10 @@ const LossAnalytics = ({ socket }) => {
 
   useEffect(() => {
     socket.on('sentLossDataAnalytics', (lossData) => {
+      if (!lossData.length) {
+        setLossData('N/A');
+        return;
+      }
       setLossData(lossData[lossData.length - 1].loss.toFixed(6).toString().slice(1));
     });
     return () => {
