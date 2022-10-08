@@ -63,7 +63,7 @@ const parseModel = (model) => {
 	return layer;
 };
 
-const lossData = [];
+let lossData = [];
 const weightData = [];
 let savedModel;
 const allWeightData = [];
@@ -80,6 +80,9 @@ io.on("connection", (socket) => {
 	});
 
 	socket.on("modelInfo", (maxWeight, loss) => {
+    if (loss.epoch === 0) {
+      lossData = [];
+    }
 		lossData.push(loss);
 		io.sockets.emit("sentLossDataPlot", lossData);
 		io.sockets.emit("sentLossDataAnalytics", lossData);
