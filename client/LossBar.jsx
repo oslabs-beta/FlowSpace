@@ -15,7 +15,7 @@ const BarChart = (props) => {
     const innerWidth = width - margin.left - margin.right
 
     useEffect(() => {
-      props.socket.on('sentLossData', (lossData) => {
+      props.socket.on('sentLossDataPlot', (lossData) => {
         setData(data => [...data, lossData]);
       });
     }, []);

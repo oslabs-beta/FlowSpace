@@ -7,10 +7,14 @@ const BiasAnalytics = ({ socket }) => {
 
   useEffect(() => {
     socket.on('sentBiasData', (BiasData) => {
+      if (!BiasData) {
+        setBiasData('Ø');
+        return;
+      }
       setBiasData(BiasData.toFixed(6).toString());
     });
     return () => {
-        socket.off('sentBiasData')
+        socket.off('sentBiasData');
     }
   }, []);
     
@@ -19,7 +23,7 @@ const BiasAnalytics = ({ socket }) => {
         {
           type:'Max Weight',
           value: biasData,
-          description: ' represents the strength of the connection between nodes.',
+          description: ' max bias placeholder Ø.',
           color: '#68C1E5',
           boldName: 'Weight'}}/>
     );

@@ -20,6 +20,14 @@ app.get("/bundle.js", (req, res) => {
 	res.sendFile(__dirname + "/build/bundle.js");
 });
 
+app.get("/export", (req, res) => {
+  res.set({
+    'Content-Type': 'application/json-attachment',
+    'content-disposition': 'attachment; filename="export.json"'
+  });
+  res.send(JSON.stringify(lossData));
+});
+
 // model must be doubly parsed prior to using this function
 const parseModel = (model) => {
 	model = JSON.parse(model);
@@ -55,7 +63,7 @@ const parseModel = (model) => {
 	return layer;
 };
 
-const lossData = [];
+let lossData = [];
 let weightData;
 let savedModel;
 const allWeightData = [];
@@ -72,10 +80,13 @@ io.on("connection", (socket) => {
 		io.sockets.emit("incomingData", d, allWeights);
 	});
 
-	socket.on("modelInfo", (maxBias, maxWeight, loss) => {
-		io.sockets.emit("sentLossData", loss);
+  socket.on("modelInfo", (maxBias, maxWeight, loss) => {
+    if (loss.epoch === 0) {
+      lossData = [];
+    }
 		lossData.push(loss);
-		//console.log(`lossData size is ${lossData.length}`);
+		io.sockets.emit("sentLossDataPlot", lossData);
+		io.sockets.emit("sentLossDataAnalytics", lossData);
 		io.sockets.emit("sentWeightData", maxWeight);
     io.sockets.emit('sentBiasData', maxBias)
 		weightData = maxWeight;
@@ -85,7 +96,8 @@ io.on("connection", (socket) => {
 	
 	socket.on("onClick", () => {
 		io.sockets.emit("incomingData", savedModel, allWeightData[allWeightData.length - 1]);
-		io.sockets.emit("sentLossData", lossData[lossData.length - 1]);
+		io.sockets.emit("sentLossDataPlot", lossData);
+		io.sockets.emit("sentLossDataAnalytics", lossData);
 		io.sockets.emit("sentWeightData", weightData);
     io.sockets.emit("sentBiasData", biasData);
 	});

@@ -24,6 +24,7 @@ let nodeInfo = [];
 let initialEdges = [];
 
 function parseLayer(layerInfo, setNodes, setEdges, allWeights) {
+  if (!layerInfo) return;
 
   // write function to get the biggest layer height (most nodes) in the model
   const getBiggestLayerHeight = (layerInfo) => {
@@ -245,7 +246,6 @@ function parseLayer(layerInfo, setNodes, setEdges, allWeights) {
     }
     
     for (let i = 0; i < nextLayerShape; i++) {
-      console.log(initialNodes[nodeNum].nodeInfo.id)
       const edge = {
         id: `${initialNodes[nodeNum].nodeInfo.id}-layer${nextLayerNumber}-node${
           i + 1
@@ -268,8 +268,6 @@ function parseLayer(layerInfo, setNodes, setEdges, allWeights) {
     }
   }
   nodeInfo = initialNodes.map((x) => x.nodeInfo);
-  console.log('these are our nodes', initialNodes);
-  console.log('these are our edges', initialEdges);
   setNodes(nodeInfo);
   setEdges(initialEdges);
 }
@@ -289,7 +287,10 @@ const HorizontalFlow = (props) => {
   useEffect(() => {
     props.socket.on('incomingData', (data, allWeights) => {
       parseLayer(data, setNodes, setEdges, allWeights);
-    })
+    });
+    return () => {
+      props.socket.off('incomingData');
+    }
   }, []);
 
   return (
