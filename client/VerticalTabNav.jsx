@@ -16,6 +16,8 @@ import LossBar from './LossBar.jsx';
 import LossAnalytics from './lossAnalytics.jsx';
 import { createTheme } from '@mui/material/styles';
 import WeightAnalytics from './weightAnalytics.jsx';
+import ExportButton from './ExportButton.jsx';
+import BiasAnalytics from './BiasAnalytics.jsx';
 
 const theme = createTheme({
   palette: {
@@ -80,6 +82,8 @@ export default function VerticalTabs() {
     setValue(newValue);
   };
 
+  useEffect(() => clickEvent(), []);
+
   return (
     <Box
       className='BOX'
@@ -116,13 +120,14 @@ export default function VerticalTabs() {
         </div>
         <div className='analytics-tiles'>
               <LossAnalytics className='tile' socket={socket} />
-              <AnalyticsTile className='tile' info={
+              <BiasAnalytics className='tile' socket={socket} />
+              {/* <AnalyticsTile className='tile' info={
                 {
                   type:'Accuracy',
                   value: '70%',
                   description: ' shows which model is best for identifying relationships.',
                   color: '#6AD9A9',
-                  boldName: 'Accuracy'}}/>
+                  boldName: 'Accuracy'}}/> */}
               <WeightAnalytics className='tile' socket={socket} />
               <AnalyticsTile className='tile' info={
                 {
@@ -136,6 +141,7 @@ export default function VerticalTabs() {
       <TabPanel value={value} index={1} style={{backgroundColor: '#FAFBFF',width:'95%',float: 'right',borderRadius: '0px 30px 30px 0px' }}>
          <LossPlot socket={socket} />
         {/* <LossBar socket={socket} /> */}
+         <ExportButton />
       </TabPanel>
     </Box>
   );

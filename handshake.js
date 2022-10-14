@@ -8,29 +8,50 @@ export class HandShake {
   constructor(model) {
     this.model = model;
     this.socket = socket;
-    // this.x = model.layers[0].getWeights()[0].dataSync()
-    // this.socket = this.connect();
     this.socket.emit('modelData', this.model);
     this.lossCallback = this.lossCallback.bind(this);
   }
 
   lossCallback(epoch, log) {
-    let x = this.model.layers //[0].getWeights()[0].dataSync() //.getWeights()  //.layers
+    let x = this.model.layers
     const allWeights = [];
     const allAbsMax = [];
+    const allBiasAbsMax = [];
     // Let's get the max of each layer
     for (let i = 0; i < x.length; i++) { 
+      // This gets the weights in each layer and returns an array of weights
       let arr = x[i].getWeights()[0].dataSync()
-      // console.log(arr, Math.max(...arr))
+      // allWeights is an array that contains the weights of all the layers
+      // allWeights is used to help in rendering the connection thickness
       allWeights.push(...Array.from(arr))
+      // We then find the max and min values in the array
       let max = Math.max(...arr)
       let min = Math.min(...arr)
+      // The maximum absolute value is then stored in allAbsMax
       if(Math.abs(max) < Math.abs(min)) {
         allAbsMax.push(min)
       } else {
         allAbsMax.push(max)
       }
     }
+
+    for (let i = 0; i < x.length; i++) { 
+      // This gets the weights in each layer and returns an array of weights
+      let biasArr = x[i].getWeights()[1].dataSync()
+      // We then find the max and min values in the array
+      let max = Math.max(...biasArr)
+      let min = Math.min(...biasArr)
+      // The maximum absolute value is then stored in allAbsMax
+      if(Math.abs(max) < Math.abs(min)) {
+        allBiasAbsMax.push(min)
+      } else {
+        allBiasAbsMax.push(max)
+      }
+    }
+
+    const biasResult = allBiasAbsMax.reduce(
+      (prev, current) => Math.abs(current) > Math.abs(prev) ? current : prev
+    , 0);
 
     // Result will be the max of node weights of all the layers
     const result = allAbsMax.reduce(
@@ -44,58 +65,17 @@ export class HandShake {
     }
     const normalizedData = []
     for(let weight = 0; weight < allWeights.length; weight++) {
-      // normalized the data between 1 and 10
+      // normalized the data between 0.8 and 10
       let normalizedWeight = 0.8 + ( ((Math.abs(allWeights[weight]) - minimum) * (10 - 0.8)) / Math.abs(result) - minimum)
       normalizedData.push(normalizedWeight) 
     }
-    // console.log(minimum)
     console.log("allAbsMax -> ", allAbsMax);
+    console.log("allBiasAbsMax -> ", biasResult);
     console.log("max of allAbsMax -> ", result);
-    //   let holder = x[i].getWeights()[0].dataSync()[0]
-    //   max = Math.max(Math.abs(holder), max)
-    // }
-    // console.log(x);
-    //console.log(arr)
     console.log('hiiiiiii', normalizedData)
-    socket.emit('modelInfo', result, this.model, { epoch, loss: log.loss } )
+    socket.emit('modelInfo', biasResult, result, { epoch, loss: log.loss } )
     socket.emit('modelData', this.model, normalizedData)
 
   }
 
 }
-
-//this.model, { epoch, loss: log.loss }
-  // connect() {
-  //   return socketIO.connect('http://localhost:3333');
-  // }
-
-    
-    // socketServer side
-    // socketIO.on('connection', (socket) => {
-    //   //handshake between DevClient <=> socketServer
-    //   console.log(`Dev Client {socket.id} connected...`);
-    
-    //   //event listener for incomingData from DevClient
-    //   socket.on('test', (data) => {
-    //     console.log(data);
-      
-    //   //emit event to send data to FlowState frontend
-    //     socketIO.emit('graphData', data);
-    //   });
-    
-    //   socket.on('disconnect', () => {
-    //     console.log('Dev Client disconnected')
-    //   });
-    // });
-
-  // sendData(e) {
-  //   // e.preventDefault();
-  //   socket.emit('incomingData', {
-  //     text: data
-  //   });
-  // }
-
-
-// export function lossCallback(epoch, log) {
-//   socket.emit('lossData', {epoch, loss: log.loss});
-// }

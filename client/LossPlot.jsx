@@ -7,18 +7,19 @@ const width = '960';
 const margin = {top: 20, right: 20, bottom: 50, left: 80}
 
 const ScatterPlot = (props) => {
-
-    // const [data, setData] = useState([{epoch: 1, loss: 1}, {epoch: 2, loss: .5}, {epoch: 3, loss: .3}, {epoch: 4, loss: .2}, {epoch: 5, loss: .15}, {epoch: 6, loss: .1}, {epoch: 7, loss: .05}])
     const [data, setData] = useState([])
 
     const innerHeight = height - margin.top - margin.bottom
     const innerWidth = width - margin.left - margin.right
 
     useEffect(() => {
-      props.socket.emit('graphTab');
-      props.socket.on('sentLossData', (lossData) => {
-        setData(data => [...data, lossData]);
+      props.socket.emit('onClick');
+      props.socket.on('sentLossDataPlot', (lossData) => {
+        setData(lossData);
       });
+      return () => {
+        props.socket.off('sentLossDataPlot');
+      }
     }, []);
 
     const yScale = scaleLinear()

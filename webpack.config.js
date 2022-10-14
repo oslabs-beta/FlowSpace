@@ -50,4 +50,9 @@ module.exports = {
     }),
   ],
   devtool: 'eval-cheap-source-map',
+  devServer: {
+    proxy: {
+      '/export': 'http://localhost:3333'
+    }
+  }
 };

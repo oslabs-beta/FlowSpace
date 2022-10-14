@@ -20,6 +20,14 @@ app.get("/bundle.js", (req, res) => {
 	res.sendFile(__dirname + "/build/bundle.js");
 });
 
+app.get("/export", (req, res) => {
+  res.set({
+    'Content-Type': 'application/json-attachment',
+    'content-disposition': 'attachment; filename="export.json"'
+  });
+  res.send(JSON.stringify(lossData));
+});
+
 // model must be doubly parsed prior to using this function
 const parseModel = (model) => {
 	model = JSON.parse(model);
@@ -55,12 +63,11 @@ const parseModel = (model) => {
 	return layer;
 };
 
-
-
-const lossData = [];
-const weightData = [];
+let lossData = [];
+let weightData;
 let savedModel;
 const allWeightData = [];
+let biasData;
 
 io.on("connection", (socket) => {
 	console.log("client connected");
@@ -73,31 +80,27 @@ io.on("connection", (socket) => {
 		io.sockets.emit("incomingData", d, allWeights);
 	});
 
-	socket.on("modelInfo", (maxWeight, model, loss) => {
-		// const d = parseModel(model);
-		// io.sockets.emit('incomingData', d);
-		io.sockets.emit("sentLossData", loss);
+  socket.on("modelInfo", (maxBias, maxWeight, loss) => {
+    if (loss.epoch === 0) {
+      lossData = [];
+    }
 		lossData.push(loss);
-		//console.log(`lossData size is ${lossData.length}`);
+		io.sockets.emit("sentLossDataPlot", lossData);
+		io.sockets.emit("sentLossDataAnalytics", lossData);
 		io.sockets.emit("sentWeightData", maxWeight);
-		weightData.push(maxWeight);
+    io.sockets.emit('sentBiasData', maxBias)
+		weightData = maxWeight;
+    biasData = maxBias;
 		//console.log(`weightData size is ${weightData.length}`);
-		//io.sockets.emit('modelData', model, allWeights);
 	});
 	
 	socket.on("onClick", () => {
 		io.sockets.emit("incomingData", savedModel, allWeightData[allWeightData.length - 1]);
-		//console.log(allWeightData[allWeightData.length - 1]);
-		io.sockets.emit("sentLossData", lossData[lossData.length - 1]);
-		io.sockets.emit("sentWeightData", weightData[weightData.length - 1]);
+		io.sockets.emit("sentLossDataPlot", lossData);
+		io.sockets.emit("sentLossDataAnalytics", lossData);
+		io.sockets.emit("sentWeightData", weightData);
+    io.sockets.emit("sentBiasData", biasData);
 	});
-
-	// socket.on('graphTab', () => {
-	//   console.log('graphTab called, loss data: ', lossData);
-	//   lossData.forEach((el) => {
-	//     io.sockets.emit('sentLossData', el);
-	//   });
-	// });
 
 	socket.on("disconnect", () => {
 		console.log("client disconnected");
