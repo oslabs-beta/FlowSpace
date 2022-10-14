@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { scaleLinear, max, min, extent } from 'd3';
 import './barChart.css';
 
-const height = '100%';
-const width = '95%';
+const height = '500';
+const width = '960';
 const margin = {top: 20, right: 20, bottom: 50, left: 80}
 
 const ScatterPlot = (props) => {
@@ -50,7 +50,7 @@ const ScatterPlot = (props) => {
                         <text key={tickValue} style={{textAnchor: "end"}} dy=".32em" x={-3} >{tickValue}</text>
                         </g>
                     ))} 
-                    <text className="yAxisLabel" x={-innerHeight/2} style={{textAnchor: "center"}} y={-35}>Loss</text>
+                    <text className="yAxisLabel" x={-innerHeight/2} style={{textAnchor: "center"}} y={-60}>Loss</text>
 
                     { data.map(d => <circle className="mark"  cx={xScale(d.epoch)} cy={yScale(d.loss)} r={10} />) }
 
