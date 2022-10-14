@@ -11,7 +11,7 @@ const WeightAnalytics = ({ socket }) => {
         setWeightData('Ø');
         return;
       }
-      setWeightData(WeightData.toFixed(6).toString());
+      setWeightData(WeightData.toFixed(5).toString());
     });
     return () => {
       socket.off('sentWeightData');

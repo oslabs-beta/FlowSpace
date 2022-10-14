@@ -11,7 +11,7 @@ const BiasAnalytics = ({ socket }) => {
         setBiasData('Ø');
         return;
       }
-      setBiasData(BiasData.toFixed(6).toString());
+      setBiasData(BiasData.toFixed(5).toString());
     });
     return () => {
         socket.off('sentBiasData');
