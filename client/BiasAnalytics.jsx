@@ -23,7 +23,7 @@ const BiasAnalytics = ({ socket }) => {
         {
           type:'Bias',
           value: biasData,
-          description: ' indicates how far off the output of the model is from the actual output.',
+          description: ' indicates differences in model output and the actual output.',
           color: '#6AD9A9',
           boldName: 'Bias'}}/>
     );

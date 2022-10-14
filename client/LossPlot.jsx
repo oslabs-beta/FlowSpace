@@ -40,10 +40,10 @@ const ScatterPlot = (props) => {
                     {xScale.ticks().map(tickValue => (
                         <g className="tick" key={tickValue} transform={`translate(${xScale(tickValue)}, 0)`}>
                         <line y2={innerHeight} />
-                        <text style={{textAnchor: "middle"}} dy=".71em" y={innerHeight + 3}>{tickValue}</text>
+                        <text style={{textAnchor: "middle"}} dy=".71em" y={innerHeight + 10}>{tickValue}</text>
                         </g> 
                     ))}
-                    <text className="xAxisLabel" y={innerHeight + 45} x={innerWidth/2}>Epoch</text>
+                    <text className="xAxisLabel" y={innerHeight + 45} x={innerWidth/2 - 30}>Epoch</text>
 
                     {yScale.ticks().map(tickValue => (
                         <g className="tick" transform={`translate(0, ${yScale(tickValue)})`}>
@@ -51,11 +51,20 @@ const ScatterPlot = (props) => {
                         <text key={tickValue} style={{textAnchor: "end"}} dy=".32em" x={-3} >{tickValue}</text>
                         </g>
                     ))} 
-                    <text className="yAxisLabel" x={-innerHeight/2} style={{textAnchor: "center"}} y={-60}>Loss</text>
+                    <text className="yAxisLabel" x={-innerHeight/2} style={{textAnchor: "center"}} y={-70}>Loss</text>
 
                     { data.map(d => <circle className="mark"  cx={xScale(d.epoch)} cy={yScale(d.loss)} r={10} />) }
 
                 </g>
+                <defs>
+                    <linearGradient id="MarkGradient" x1="0.5" y1="0" x2="0.5" y2="1">
+                        <stop offset="0%" stop-color="#f4b400"/>
+                        <stop offset="17%" stop-color="#f1a50e"/>
+                        <stop offset="51%" stop-color="#ea8419"/>
+                        <stop offset="67.33%" stop-color="#e3722a"/>
+                        <stop offset="100%" stop-color="#db4437"/>
+                    </linearGradient>
+                </defs>
             </svg>
         </div>
     )

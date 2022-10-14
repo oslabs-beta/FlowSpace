@@ -19,27 +19,25 @@
 }
 
 .mark {
-  fill: #EA8419;
-  stroke: #DB4437;
-  background: linear-gradient(to top, #DB4437, #EA8419, #F4B400);
+  fill:  url(#MarkGradient);
   -webkit-filter: drop-shadow( 3px 3px 2px rgb(179, 197, 234, .75));
   filter: drop-shadow( 3px 3px 2px rgb(179, 197, 234, .75));
 }
 
 .xAxisLabel {
   font-size: 1rem;
-  
   fill: #635F5D;
 }
 
 .yAxisLabel {
   transform: rotate(-90deg);
   font-size: 1rem;
-  font: HandoSoft-Medium;
+  font-family: HandoSoft-Medium;
   fill: #635F5D;
 }
 
 .d3Graph {
+  padding: 1rem;
   background-color: #fff;
   border-radius: 30px;
   backdrop-filter: blur(5px);
