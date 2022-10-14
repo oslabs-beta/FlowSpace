@@ -4,17 +4,16 @@ import AnalyticsTile from './AnalyticsTile.jsx';
 const LossAnalytics = ({ socket }) => {
 
   const [ lossData, setLossData ] = useState();
-  const [ lossMethod, setlossMethod ] = useState();
+  const [ lossMethod, setlossMethod ] = useState('');
 
 
   useEffect(() => {
     socket.on('sentLossDataAnalytics', (lossData, lossMethod) => {
       if (!lossData.length) {
         setLossData('Ø');
-        setlossMethod('Ø');
         return;
       }
-      setLossData(lossData[lossData.length - 1].loss.toFixed(6).toString().slice(1));
+      setLossData(lossData[lossData.length - 1].loss.toFixed(6).toString());
       setlossMethod(lossMethod)
     });
     return () => {

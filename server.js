@@ -65,6 +65,7 @@ const parseModel = (model) => {
 
 let lossData = [];
 let weightData;
+let lossMethodHolder;
 let savedModel;
 const allWeightData = [];
 let biasData;
@@ -96,14 +97,14 @@ io.on("connection", (socket) => {
     biasData = maxBias;
 	optimizerIterations = optimizer.iterations_;
 	optimizerLearingRate = optimizer.learningRate;
-	console.log(optimizer.toString())
+	lossMethodHolder = lossMethod
 		//console.log(`weightData size is ${weightData.length}`);
 	});
 	
 	socket.on("onClick", () => {
 		io.sockets.emit("incomingData", savedModel, allWeightData[allWeightData.length - 1]);
 		io.sockets.emit("sentLossDataPlot", lossData);
-		io.sockets.emit("sentLossDataAnalytics", lossData);
+		io.sockets.emit("sentLossDataAnalytics", lossData, lossMethodHolder);
 		io.sockets.emit("sentWeightData", weightData);
     	io.sockets.emit("sentBiasData", biasData);
 		io.sockets.emit("sentOptimizerData", optimizerIterations, optimizerLearingRate);

@@ -3,14 +3,13 @@ import AnalyticsTile from './AnalyticsTile.jsx';
 
 const OptimizerAnalytics = ({ socket }) => {
 
-  const [ optimizerData, setOptimizerData ] = useState('Ø');
-  const [ optimizerLearningRate, setoptimizerLearningRate ] = useState('Ø');
+  const [ optimizerData, setOptimizerData ] = useState();
+  const [ optimizerLearningRate, setoptimizerLearningRate ] = useState('');
 
   useEffect(() => {
     socket.on('sentOptimizerData', (optimizerIterations, optimizerLearningRate) => {
         if (!optimizerIterations) {
         setOptimizerData('Ø');
-        setoptimizerLearningRate('Ø')
         return;
       }
       setOptimizerData(optimizerIterations);
@@ -26,7 +25,7 @@ const OptimizerAnalytics = ({ socket }) => {
         {
           type:'Max Weight',
           value: optimizerData,
-          description: ` Optimizer Ø. ${optimizerLearningRate}`,
+          description: ` Optimizer. ${optimizerLearningRate}`,
           color: '#68C1E5',
           boldName: 'Weight'}}/>
     );
