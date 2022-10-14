@@ -122,13 +122,6 @@ export default function VerticalTabs() {
         <div className='analytics-tiles'>
               <LossAnalytics className='tile' socket={socket} />
               <BiasAnalytics className='tile' socket={socket} />
-              {/* <AnalyticsTile className='tile' info={
-                {
-                  type:'Accuracy',
-                  value: '70%',
-                  description: ' shows which model is best for identifying relationships.',
-                  color: '#6AD9A9',
-                  boldName: 'Accuracy'}}/> */}
               <WeightAnalytics className='tile' socket={socket} />
               <OptimizerAnalytics className='tile' socket={socket} />
               <AnalyticsTile className='tile' info={
@@ -142,7 +135,6 @@ export default function VerticalTabs() {
       </TabPanel>
       <TabPanel value={value} index={1} style={{backgroundColor: '#FAFBFF',width:'95%',float: 'right',borderRadius: '0px 30px 30px 0px' }}>
          <LossPlot socket={socket} />
-        {/* <LossBar socket={socket} /> */}
          <ExportButton />
       </TabPanel>
     </Box>
