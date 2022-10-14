@@ -1,7 +1,7 @@
 import React, { useCallback, useState, useEffect } from 'react';
 import './AnalyticsTile.scss';
 import LossIcon from './assets/Group 1.png';
-import AccuracyIcon from './assets/Group 2.png';
+import BiasIcon from './assets/Group 2.png';
 import WeightIcon from './assets/Group 3.png';
 import ActivationIcon from './assets/Group 4.png';
 
@@ -20,8 +20,8 @@ const AnalyticsTile = ({ info }) => {
                 {type === 'Loss' && (
                     <img src={LossIcon}></img>
                 )}
-                {type === 'Accuracy' && (
-                    <img src={AccuracyIcon}></img>
+                {type === 'Bias' && (
+                    <img src={BiasIcon}></img>
                 )}
                 {type === 'Max Weight' && (
                     <img src={WeightIcon}></img>
