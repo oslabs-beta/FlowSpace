@@ -73,7 +73,7 @@ export class HandShake {
     console.log("allBiasAbsMax -> ", biasResult);
     console.log("max of allAbsMax -> ", result);
     console.log('hiiiiiii', normalizedData)
-    socket.emit('modelInfo', biasResult, result, { epoch, loss: log.loss } )
+    socket.emit('modelInfo', this.model.loss, this.model.optimizer, biasResult, result, { epoch, loss: log.loss } )
     socket.emit('modelData', this.model, normalizedData)
 
   }

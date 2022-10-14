@@ -18,6 +18,7 @@ import { createTheme } from '@mui/material/styles';
 import WeightAnalytics from './weightAnalytics.jsx';
 import ExportButton from './ExportButton.jsx';
 import BiasAnalytics from './BiasAnalytics.jsx';
+import OptimizerAnalytics from './OptimizerAnalytics.jsx';
 
 const theme = createTheme({
   palette: {
@@ -122,6 +123,7 @@ export default function VerticalTabs() {
               <LossAnalytics className='tile' socket={socket} />
               <BiasAnalytics className='tile' socket={socket} />
               <WeightAnalytics className='tile' socket={socket} />
+              <OptimizerAnalytics className='tile' socket={socket} />
               <AnalyticsTile className='tile' info={
                 {
                   type:'Activation',
