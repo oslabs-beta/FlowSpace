@@ -23,7 +23,7 @@ const BiasAnalytics = ({ socket }) => {
         {
           type:'Bias',
           value: biasData,
-          description: ' max bias placeholder Ø.',
+          description: ' indicates how far off the output of the model is from the actual output.',
           color: '#6AD9A9',
           boldName: 'Bias'}}/>
     );
