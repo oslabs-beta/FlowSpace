@@ -6,7 +6,12 @@
 
 <!-- FlowState Readme -->
 <h1 align="center">
+
 FlowState
+
+<br>
+
+<img height= "200" src="https://github.com/oslabs-beta/FlowState/raw/README/client/assets/Logo.jpg"/>
 
 <h2 align= "center">
 
@@ -22,8 +27,6 @@ An all in one data visualization tool for [TensorFlow.js](https://www.tensorflow
 
 </h2>
 </h1>
-
-<br>
 
 <details open>
     <summary><b>FlowState JS</b></summary>
