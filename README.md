@@ -12,11 +12,6 @@ FlowState
 
 An all in one data visualization tool for [TensorFlow.js](https://www.tensorflow.org/js) developers
 
-</h2>
-</h1>
-
-<h2 align="center">
-
 ![GitHub top language](https://img.shields.io/github/languages/top/oslabs-beta/FlowState) &nbsp;
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/oslabs-beta/flowstate) &nbsp;
 ![npm](https://img.shields.io/npm/v/flowstate) &nbsp;
@@ -26,6 +21,9 @@ An all in one data visualization tool for [TensorFlow.js](https://www.tensorflow
 ![GitHub Repo stars](https://img.shields.io/github/stars/oslabs-beta/FlowState?style=social) &nbsp;
 
 </h2>
+</h1>
+
+<br>
 
 <details open>
     <summary><b>FlowState JS</b></summary>
