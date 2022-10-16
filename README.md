@@ -1,8 +1,8 @@
 <!-- style -->
-<style>
-    textContent { font-size: 15px; 
+<!-- <style>
+    b { font-size: 15px;
     font-weight: 700}
-</style>
+</style> -->
 
 <!-- FlowState Readme -->
 <h1 align="center">
@@ -18,7 +18,6 @@ An all in one data visualization tool for [TensorFlow.js](https://www.tensorflow
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/oslabs-beta/flowstate) &nbsp;
 ![npm](https://img.shields.io/npm/v/flowstate) &nbsp;
 ![GitHub](https://img.shields.io/github/license/oslabs-beta/flowstate) &nbsp;
-![GitHub branch checks state](https://img.shields.io/github/checks-status/oslabs-beta/flowstate/dev?label=dev%20) &nbsp;
 ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/oslabs-beta/flowstate/dev) &nbsp;
 ![GitHub contributors](https://img.shields.io/github/contributors/oslabs-beta/flowstate) &nbsp;
 ![GitHub Repo stars](https://img.shields.io/github/stars/oslabs-beta/FlowState?style=social) &nbsp;
@@ -38,14 +37,14 @@ An all in one data visualization tool for [TensorFlow.js](https://www.tensorflow
 </details>
 <hr>
 <details open> 
-    <summary><textContent> Problem </textContent></summary> <a name="problem"></a>
+    <summary><b> Problem </b></summary> <a name="problem"></a>
 
 We set out to solve an accessibility problem. Due to its complexity, many developers are discouraged from engaging with Machine Learning. TensorFlow.js is a Javascript machine learning library intended to bring ML to developers with little experience in it. Despite its simplicity, it lacks direct support for a visualization tool.
 
 </details>
 
 <details open> 
-    <summary><textContent> Solution </textContent></summary> <a name="solution"></a>
+    <summary><b> Solution </b></summary> <a name="solution"></a>
 
 Our solution is to develop a model and data visualization tool for TensorflowJS through the utilization of React-flow, the D3 Visualization library, React Frontend and Socket.io
 
@@ -88,14 +87,14 @@ Once a developer installs our npm package, all they have to do is import our lib
 <hr>
 
 <details open> 
-    <summary><textContent> About FlowState </textContent></summary> <a name="aboutFlowState"></a>
+    <summary><b> About FlowState </b></summary> <a name="aboutFlowState"></a>
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Viverra adipiscing at in tellus integer feugiat scelerisque varius. Mauris ultrices eros in cursus turpis massa. Porttitor massa id neque aliquam vestibulum morbi blandit. Amet tellus cras adipiscing enim. Eu volutpat odio facilisis mauris sit amet.
 
 </details>
 
 <details open> 
-    <summary><textContent> Tech-Stack </textContent></summary> <a name="techStack"></a>
+    <summary><b> Tech-Stack </b></summary> <a name="techStack"></a>
     <div align="center">
         <div align="center">
             <div align="center">
@@ -122,18 +121,18 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         <img height = "40" src="https://img.icons8.com/color/48/000000/figma--v1.png"/>
     </code> <br>
     </div>
-    
+
 </details>
 
 <details open> 
-    <summary><textContent> Install and Set-up </textContent></summary> <a name="installAndSetup"></a>
+    <summary><b> Install and Set-up </b></summary> <a name="installAndSetup"></a>
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Viverra adipiscing at in tellus integer feugiat scelerisque varius. Mauris ultrices eros in cursus turpis massa. Porttitor massa id neque aliquam vestibulum morbi blandit. Amet tellus cras adipiscing enim. Eu volutpat odio facilisis mauris sit amet.
 
 </details>
 
 <details open> 
-    <summary><textContent> Using FlowState Features </textContent></summary> <a name="usingFlowState"></a>
+    <summary><b> Using FlowState Features </b></summary> <a name="usingFlowState"></a>
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Viverra adipiscing at in tellus integer feugiat scelerisque varius. Mauris ultrices eros in cursus turpis massa. Porttitor massa id neque aliquam vestibulum morbi blandit. Amet tellus cras adipiscing enim. Eu volutpat odio facilisis mauris sit amet.
 
@@ -143,14 +142,14 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 Give credits to the team here, we can make list if needed -->
 
 <details open> 
-    <summary><textContent> License </textContent></summary> <a name="license"></a>
+    <summary><b> License </b></summary> <a name="license"></a>
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Viverra adipiscing at in tellus integer feugiat scelerisque varius. Mauris ultrices eros in cursus turpis massa. Porttitor massa id neque aliquam vestibulum morbi blandit. Amet tellus cras adipiscing enim. Eu volutpat odio facilisis mauris sit amet.
 
 </details>
 
 <details open> 
-    <summary><textContent> The Team </textContent></summary> <a name="contacts"></a>
+    <summary><b> The Team </b></summary> <a name="contacts"></a>
 
 - [Mark Alexander](https://github.com/MarkA772)
 - [Saif Beiruty](https://github.com/saifbeiruty)
