@@ -6,11 +6,8 @@
 
 <!-- FlowState Readme -->
 <h1 align="center">
-
 FlowState
-
 <br>
-
 <img height= "200" src="https://github.com/oslabs-beta/FlowState/raw/README/client/assets/Logo.jpg"/>
 
 <h2 align= "center">
