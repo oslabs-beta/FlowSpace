@@ -8,8 +8,11 @@
 <h1 align="center">
 FlowState
 
+<h2 align= "center">
+
 An all in one data visualization tool for [TensorFlow.js](https://www.tensorflow.org/js) developers
 
+</h2>
 </h1>
 
 <h2 align="center">
