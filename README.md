@@ -1,3 +1,9 @@
+<!-- style -->
+<style>
+    textContent { font-size: 15px; 
+    font-weight: 700}
+</style>
+
 <!-- FlowState Readme -->
 <h1 align="center">
 FlowState
@@ -19,25 +25,41 @@ An all in one data visualization tool for [TensorFlow.js](https://www.tensorflow
 
 </h2>
 
-### FlowState JS
-1. [Problem](#problem)
-2. [Solution](#solution)
+<details open>
+    <summary><b>FlowState JS</b></summary>
+    <ol>
+        <li>
+            <a href = "#problem"> Problem </a>
+        </li> 
+        <li>
+            <a href = "#solution"> Solution </a>
+        </li> 
+    </ol>
+</details>
 <hr>
+<details open> 
+    <summary><textContent> Problem </textContent></summary> <a name="problem"></a>
 
-## Problem <a name="problem"></a>
 We set out to solve an accessibility problem. Due to its complexity, many developers are discouraged from engaging with Machine Learning. TensorFlow.js is a Javascript machine learning library intended to bring ML to developers with little experience in it. Despite its simplicity, it lacks direct support for a visualization tool.
 
-## Solution <a name="solution"></a>
+</details>
+
+<details open> 
+    <summary><textContent> Problem </textContent></summary> <a name="problem"></a>
+
 Our solution is to develop a model and data visualization tool for TensorflowJS through the utilization of React-flow, the D3 Visualization library, React Frontend and Socket.io
 
 We created a npm package that offers visualization of machine learning model architecture and contextualization of model metrics. It includes an interactive architecture as well as real time visuals of data such as loss over each epoch.
 
 Once a developer installs our npm package, all they have to do is import our library and pass their model into our flowState method. Upon running their application, an independent visual bridge is created that utilizes Socket.IO. This allows the two applications to speak to one another, thus creating a bidirectional connection for data to pass seamlessly between the two environments in real-time. At any time, the developer can change the number of nodes in a layer or altering the number of layers in the model and this would update in real-time on our front-end.
 
+</details>
+
 ---
-<!--Table of Contents Here--> 
+
+<!--Table of Contents Here-->
 <details open>
-    <summary> Table of Contents </summary>
+    <summary><b>Table of Contents</b></summary>
     <ol>
         <li>
             <a href = "#aboutFlowState"> About Flow State </a>
@@ -58,35 +80,48 @@ Once a developer installs our npm package, all they have to do is import our lib
             <a href = "#contacts"> Contacts </a>
         </li> 
     </ol>
-</details> 
+</details>
 
 <hr>
 
-## About FlowState <a name="aboutFlowState"></a>
-About FlowState here
+<details open> 
+    <summary><textContent> About FlowState </textContent></summary> <a name="aboutFlowState"></a>
 
-## Install and Set-up <a name="installAndSetup"></a>
-Install and set up directions
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Viverra adipiscing at in tellus integer feugiat scelerisque varius. Mauris ultrices eros in cursus turpis massa. Porttitor massa id neque aliquam vestibulum morbi blandit. Amet tellus cras adipiscing enim. Eu volutpat odio facilisis mauris sit amet.
 
-### Sub paragraph <a name="subparagraph1"></a>
-This is a sub paragraph, formatted in heading 3 style < JUST IN CASE WE WANNA THROW IN SUB PARAGRAPH
+</details>
 
-## Using FlowState Features <a name="usingFlowState"></a>
-How to use FlowState Features
+<details open> 
+    <summary><textContent> Install and Set-up </textContent></summary> <a name="installAndSetup"></a>
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Viverra adipiscing at in tellus integer feugiat scelerisque varius. Mauris ultrices eros in cursus turpis massa. Porttitor massa id neque aliquam vestibulum morbi blandit. Amet tellus cras adipiscing enim. Eu volutpat odio facilisis mauris sit amet.
+
+</details>
+
+<details open> 
+    <summary><textContent> Using FlowState Features </textContent></summary> <a name="usingFlowState"></a>
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Viverra adipiscing at in tellus integer feugiat scelerisque varius. Mauris ultrices eros in cursus turpis massa. Porttitor massa id neque aliquam vestibulum morbi blandit. Amet tellus cras adipiscing enim. Eu volutpat odio facilisis mauris sit amet.
+
+</details>
 
 <!-- ## Credits (Contributors) <a name = "credits"></a>
 Give credits to the team here, we can make list if needed -->
 
-## License <a name = "license"></a>
-License and other legalities? 
+<details open> 
+    <summary><textContent> License </textContent></summary> <a name="license"></a>
 
-## The Team <a name = "contacts"></a>
-[Mark Alexander](https://github.com/MarkA772)
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Viverra adipiscing at in tellus integer feugiat scelerisque varius. Mauris ultrices eros in cursus turpis massa. Porttitor massa id neque aliquam vestibulum morbi blandit. Amet tellus cras adipiscing enim. Eu volutpat odio facilisis mauris sit amet.
 
-[Saif Beiruty](https://github.com/saifbeiruty)
+</details>
 
-[Laurance Diarra](https://github.com/ld17282)
+<details open> 
+    <summary><textContent> The Team </textContent></summary> <a name="contacts"></a>
 
-[Mike Oakes](https://github.com/MOakes7)
+- [Mark Alexander](https://github.com/MarkA772)
+- [Saif Beiruty](https://github.com/saifbeiruty)
+- [Laurance Diarra](https://github.com/ld17282)
+- [Mike Oakes](https://github.com/MOakes7)
+- [Sabre Nguyen](https://github.com/klsabren)
 
-[Sabre Nguyen](https://github.com/klsabren)
+</details>
