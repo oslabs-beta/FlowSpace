@@ -45,7 +45,7 @@ We set out to solve an accessibility problem. Due to its complexity, many develo
 </details>
 
 <details open> 
-    <summary><textContent> Problem </textContent></summary> <a name="problem"></a>
+    <summary><textContent> Solution </textContent></summary> <a name="solution"></a>
 
 Our solution is to develop a model and data visualization tool for TensorflowJS through the utilization of React-flow, the D3 Visualization library, React Frontend and Socket.io
 
@@ -63,7 +63,10 @@ Once a developer installs our npm package, all they have to do is import our lib
     <ol>
         <li>
             <a href = "#aboutFlowState"> About Flow State </a>
-        </li> 
+        </li>
+        <li>
+            <a href = "#techStack"> Tech-Stack </a>
+        </li>
         <li>
             <a href = "#installAndSetup"> Install and Set-up </a>
         </li> 
@@ -89,6 +92,37 @@ Once a developer installs our npm package, all they have to do is import our lib
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Viverra adipiscing at in tellus integer feugiat scelerisque varius. Mauris ultrices eros in cursus turpis massa. Porttitor massa id neque aliquam vestibulum morbi blandit. Amet tellus cras adipiscing enim. Eu volutpat odio facilisis mauris sit amet.
 
+</details>
+
+<details open> 
+    <summary><textContent> Tech-Stack </textContent></summary> <a name="techStack"></a>
+    <div align="center">
+        <div align="center">
+            <div align="center">
+                <div align="center">
+                    <code>
+                        <img height= "40" src="https://img.icons8.com/color/48/000000/javascript--v1.png"/>
+                    </code> <br>
+                </div>
+                <code>
+                    <img height = "40" src="https://img.icons8.com/color/48/000000/html-5--v1.png"/>
+                    <img height = "40" src="https://img.icons8.com/color/48/000000/css3.png"/>
+                </code> <br>
+            </div>
+            <code>
+                <img height = "40" src="https://img.icons8.com/color/48/000000/tensorflow.png"/>
+                <img height = "40" src="https://img.icons8.com/bubbles/50/000000/react.png"/>
+                <img height = "40" src="https://img.icons8.com/fluency/48/000000/node-js.png"/>
+            </code><br>
+        </div>
+    <code>
+        <img height = "40" src="https://cdn.icon-icons.com/icons2/2389/PNG/48/socket_io_logo_icon_144874.png"/>
+        <img height = "40" src="https://reactflow.dev/img/logo.svg"/>
+        <img height = "40" src="https://img.icons8.com/external-tal-revivo-duo-tal-revivo/50/000000/external-d3js-a-javascript-library-for-producing-dynamic-interactive-data-visualizations-in-web-browsers-logo-duo-tal-revivo.png"/>
+        <img height = "40" src="https://img.icons8.com/color/48/000000/figma--v1.png"/>
+    </code> <br>
+    </div>
+    
 </details>
 
 <details open> 
