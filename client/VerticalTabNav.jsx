@@ -17,7 +17,8 @@ import LossAnalytics from './lossAnalytics.jsx';
 import { createTheme } from '@mui/material/styles';
 import WeightAnalytics from './weightAnalytics.jsx';
 import ExportButton from './ExportButton.jsx';
-import BiasAnalytics from './biasAnalytics.jsx';
+import BiasAnalytics from './BiasAnalytics.jsx';
+import OptimizerAnalytics from './OptimizerAnalytics.jsx';
 
 const theme = createTheme({
   palette: {
@@ -86,10 +87,12 @@ export default function VerticalTabs() {
 
   return (
     <Box
+      className='BOX'
       sx={{
         bgcolor: 'background.paper', 
         display: 'flex',
         height: '100%',
+        width: '100%',
         borderRadius: '30px',
         boxShadow: '0 10px 20px rgb(179, 197, 234, .75)' }}
     >
@@ -100,14 +103,10 @@ export default function VerticalTabs() {
         indicatorColor={theme.palette.primary.main}
         sx={{ width: '5%', float: 'left'}}
       >
-        <Tab 
-        icon={<Logo />} {...a11yProps(0)} 
-        onClick={clickEvent}
-        />
-        <Tab icon={<GraphIcon />}{...a11yProps(1)} />
+        <Tab className='tabIcon' icon={<Logo />} style={{ textAlign:'center'}} {...a11yProps(0)} onClick={clickEvent}/>
+        <Tab className='tabIcon' icon={<GraphIcon />} style={{ textAlign:'center' }} {...a11yProps(1)} onClick={clickEvent}/>
       </Tabs>
       <TabPanel value={value} index={0} style={{backgroundColor: '#FAFBFF',width:'95%',float: 'right',borderRadius: '0px 30px 30px 0px'}}>
-        <div className='container'>
           <div className='analytics-header' style={{ width: "100%", height: "10%", float: "right" }}> 
           <p>Welcome,</p>
           <h2>Model Architecture</h2>
@@ -117,24 +116,22 @@ export default function VerticalTabs() {
             <HorizontalFlow socket={socket} />
           </div>
         </div>
-        <div className='analytics-overview-header' style={{ width: "100%", height: "8%", float: "right" }}>
+        <div className='analytics-overview-header' style={{ width: "100%", height: "6%", float: "right" }}>
           <h2>At A Glance</h2>
         </div>
-        <div className='analytics-overview' style={{ width: "100%", height: "42%", float: "right" }}>
-          <div className='analytics-tiles'>
-            <LossAnalytics socket={socket} />
-            <BiasAnalytics socket={socket} />
-            <WeightAnalytics socket={socket} />
-            <AnalyticsTile info={
-              {
-                type:'Activation',
-                value: 'Tahn',
-                description: ' decides whether or not a neuron should be activated. ',
-                color: '#FF00B8',
-                boldName: 'Activation'}}/>
+        <div className='analytics-tiles'>
+              <LossAnalytics className='tile' socket={socket} />
+              <BiasAnalytics className='tile' socket={socket} />
+              <WeightAnalytics className='tile' socket={socket} />
+              <OptimizerAnalytics className='tile' socket={socket} />
+              <AnalyticsTile className='tile' info={
+                {
+                  type:'Activation',
+                  value: 'Tahn',
+                  description: ' decides whether or not a neuron should be activated. ',
+                  color: '#FF00B8',
+                  boldName: 'Activation'}}/>
           </div>
-        </div>
-        </div>
       </TabPanel>
       <TabPanel value={value} index={1} style={{backgroundColor: '#FAFBFF',width:'95%',float: 'right',borderRadius: '0px 30px 30px 0px' }}>
          <LossPlot socket={socket} />

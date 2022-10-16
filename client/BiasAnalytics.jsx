@@ -11,7 +11,7 @@ const BiasAnalytics = ({ socket }) => {
         setBiasData('Ø');
         return;
       }
-      setBiasData(BiasData.toFixed(6).toString());
+      setBiasData(BiasData.toFixed(5).toString());
     });
     return () => {
         socket.off('sentBiasData');
@@ -21,11 +21,11 @@ const BiasAnalytics = ({ socket }) => {
     return (
       <AnalyticsTile info={
         {
-          type:'Max Weight',
+          type:'Bias',
           value: biasData,
-          description: ' max bias placeholder Ø.',
-          color: '#68C1E5',
-          boldName: 'Weight'}}/>
+          description: ' indicates differences in model output and the actual output.',
+          color: '#6AD9A9',
+          boldName: 'Bias'}}/>
     );
 };
 
