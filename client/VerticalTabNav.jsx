@@ -129,7 +129,7 @@ export default function VerticalTabs() {
                   type:'Activation',
                   value: 'Tahn',
                   description: ' decides whether or not a neuron should be activated. ',
-                  color: '#FF00B8',
+                  color: '#DB00FF',
                   boldName: 'Activation'}}/>
           </div>
       </TabPanel>

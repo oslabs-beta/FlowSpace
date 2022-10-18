@@ -23,11 +23,11 @@ const OptimizerAnalytics = ({ socket }) => {
     return (
       <AnalyticsTile info={
         {
-          type:'Max Weight',
+          type:'Optimizer',
           value: optimizerData,
           description: ` Optimizer. ${optimizerLearningRate}`,
-          color: '#68C1E5',
-          boldName: 'Weight'}}/>
+          color: '#FF00B8',
+          boldName: 'Optimizer'}}/>
     );
 };
 
