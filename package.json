@@ -47,6 +47,7 @@
     "stabrabbit7": "./server.js"
   },
   "devDependencies": {
+    "jest": "^29.2.2",
     "svg-inline-loader": "^0.8.2",
     "webpack-cli": "^4.10.0"
   }
