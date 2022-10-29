@@ -124,18 +124,20 @@ export default function VerticalTabs() {
               <BiasAnalytics className='tile' socket={socket} />
               <WeightAnalytics className='tile' socket={socket} />
               <OptimizerAnalytics className='tile' socket={socket} />
-              <AnalyticsTile className='tile' info={
-                {
-                  type:'Activation',
-                  value: 'Tahn',
-                  description: ' decides whether or not a neuron should be activated. ',
-                  color: '#DB00FF',
-                  boldName: 'Activation'}}/>
           </div>
       </TabPanel>
       <TabPanel value={value} index={1} style={{backgroundColor: '#FAFBFF',width:'95%',float: 'right',borderRadius: '0px 30px 30px 0px' }}>
          <LossPlot socket={socket} />
+         <div className='analytics-overview-header-graph' style={{ width: "100%", height: "6%", float: "right", paddingTop: "5.8rem" }}>
          <ExportButton />
+          <h2>At A Glance</h2>
+        </div>
+         <div className='analytics-tiles-graph' style={{ paddingTop: "1rem" }}>
+              <LossAnalytics className='tile' socket={socket} />
+              <BiasAnalytics className='tile' socket={socket} />
+              <WeightAnalytics className='tile' socket={socket} />
+              <OptimizerAnalytics className='tile' socket={socket} />
+          </div>
       </TabPanel>
     </Box>
   );
