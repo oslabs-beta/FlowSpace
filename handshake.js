@@ -69,12 +69,7 @@ export class HandShake {
       let normalizedWeight = 0.8 + ( ((Math.abs(allWeights[weight]) - minimum) * (10 - 0.8)) / Math.abs(result) - minimum)
       normalizedData.push(normalizedWeight) 
     }
-    // console.log("allAbsMax -> ", allAbsMax);
-    // console.log("allBiasAbsMax -> ", biasResult);
-    // console.log("max of allAbsMax -> ", result);
-    // console.log('hiiiiiii', normalizedData)
     socket.emit('modelInfo', this.model.loss, this.model.optimizer, biasResult, result, { epoch, loss: log.loss } )
-    console.log('before emit ************************************')
     socket.emit('modelData', this.model, normalizedData)
 
   }
