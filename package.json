@@ -1,7 +1,7 @@
 {
   "name": "flowspace",
   "version": "0.0.1",
-  "description": "",
+  "description": "a data visualization tool for TensorFlow.js",
   "main": "handshake.js",
   "type": "module",
   "scripts": {
@@ -15,7 +15,7 @@
     "type": "git",
     "url": "git+https://github.com/oslabs-beta/FlowSpace.git"
   },
-  "author": "",
+  "author": "Mark Alexander, Saif Beiruty, Laurance Diarra, Mike Oakes, and Sabre Nguyen",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/oslabs-beta/FlowSpace/issues"
