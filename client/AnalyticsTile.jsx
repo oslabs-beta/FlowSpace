@@ -4,6 +4,7 @@ import LossIcon from './assets/Group 1.png';
 import BiasIcon from './assets/Group 2.png';
 import WeightIcon from './assets/Group 3.png';
 import ActivationIcon from './assets/Group 4.png';
+import OptimizerIcon from './assets/Group 6.png';
 
 const AnalyticsTile = ({ info }) => {
     const {
@@ -25,6 +26,9 @@ const AnalyticsTile = ({ info }) => {
                 )}
                 {type === 'Max Weight' && (
                     <img src={WeightIcon}></img>
+                )}
+                {type === 'Optimizer' && (
+                    <img src={OptimizerIcon}></img>
                 )}
                 {type === 'Activation' && (
                     <img src={ActivationIcon}></img>

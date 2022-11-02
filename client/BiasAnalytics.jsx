@@ -23,10 +23,13 @@ const BiasAnalytics = ({ socket }) => {
         {
           type:'Bias',
           value: biasData,
-          description: ' indicates differences in model output and the actual output.',
+          description: ' variables are utilized with the purpose of matching functions with a y-intercept other than zero.',
           color: '#6AD9A9',
           boldName: 'Bias'}}/>
     );
 };
 
 export default BiasAnalytics;
+
+
+

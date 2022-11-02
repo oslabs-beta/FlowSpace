@@ -26,9 +26,10 @@ const LossAnalytics = ({ socket }) => {
         {
           type:'Loss',
           value: lossData,
-          description: ` shows how well your algorithm models your data ${lossMethod}.`,
+          description: ` shows how well your algorithm models your data. The loss function: ${lossMethod}.`,
           color: '#F4B400',
-          boldName: 'Loss'}}/>
+          boldName: 'Loss',
+          lossMethod: lossMethod}}/>
     );
 };
 
