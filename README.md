@@ -4,11 +4,11 @@
     font-weight: 700}
 </style> -->
 
-<!-- FlowState Readme -->
+<!-- FlowSpace Readme -->
 <h1 align="center">
-FlowState
-<br>
-<img height= "200" src="https://github.com/oslabs-beta/FlowSpace/raw/README/client/assets/Logo.jpg"/>
+FlowSpace
+<br/>
+<img height= "200" src="https://raw.githubusercontent.com/oslabs-beta/FlowSpace/dev/client/assets/Logo.jpg"/>
 
 <h2 align= "center">
 
@@ -16,7 +16,7 @@ An all in one data visualization tool for [TensorFlow.js](https://www.tensorflow
 
 ![GitHub top language](https://img.shields.io/github/languages/top/oslabs-beta/FlowSpace) &nbsp;
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/oslabs-beta/flowspace) &nbsp;
-![npm](https://img.shields.io/npm/v/flowspace) &nbsp;
+![npm](https://img.shields.io/npm/v/flowspace.js) &nbsp;
 ![GitHub](https://img.shields.io/github/license/oslabs-beta/flowspace) &nbsp;
 ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/oslabs-beta/flowspace/dev) &nbsp;
 ![GitHub contributors](https://img.shields.io/github/contributors/oslabs-beta/flowspace) &nbsp;
@@ -60,7 +60,7 @@ This led the team to develop FlowSpace, a light-weight npm package that generate
     <summary><b>Table of Contents</b></summary>
     <ol>
         <li>
-            <a href = "#aboutFlowState"> About FlowSpace </a>
+            <a href = "#aboutFlowSpace"> About FlowSpace </a>
         </li>
         <li>
             <a href = "#techStack"> Tech-Stack </a>
@@ -69,7 +69,7 @@ This led the team to develop FlowSpace, a light-weight npm package that generate
             <a href = "#installAndSetup"> Install and Set-up </a>
         </li> 
         <li>
-            <a href = "#usingFlowState"> Using FlowState Features </a>
+            <a href = "#usingFlowSpace"> Using FlowSpace Features </a>
         </li> 
         <!-- <li>
             <a href = "#credits"> Credits and Contributors </a>
@@ -88,7 +88,7 @@ This led the team to develop FlowSpace, a light-weight npm package that generate
 <details open> 
     <summary><b> About FlowSpace </b></summary> <a name="aboutFlowSpace"></a>
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Viverra adipiscing at in tellus integer feugiat scelerisque varius. Mauris ultrices eros in cursus turpis massa. Porttitor massa id neque aliquam vestibulum morbi blandit. Amet tellus cras adipiscing enim. Eu volutpat odio facilisis mauris sit amet.
+<!-- Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Viverra adipiscing at in tellus integer feugiat scelerisque varius. Mauris ultrices eros in cursus turpis massa. Porttitor massa id neque aliquam vestibulum morbi blandit. Amet tellus cras adipiscing enim. Eu volutpat odio facilisis mauris sit amet. -->
 
 </details>
 
@@ -175,9 +175,9 @@ npx flowspace
 </details>
 
 <details open> 
-    <summary><b> Using FlowState Features </b></summary> <a name="usingFlowSpace"></a>
+    <summary><b> Using FlowSpace Features </b></summary> <a name="usingFlowSpace"></a>
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Viverra adipiscing at in tellus integer feugiat scelerisque varius. Mauris ultrices eros in cursus turpis massa. Porttitor massa id neque aliquam vestibulum morbi blandit. Amet tellus cras adipiscing enim. Eu volutpat odio facilisis mauris sit amet.
+<!-- Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Viverra adipiscing at in tellus integer feugiat scelerisque varius. Mauris ultrices eros in cursus turpis massa. Porttitor massa id neque aliquam vestibulum morbi blandit. Amet tellus cras adipiscing enim. Eu volutpat odio facilisis mauris sit amet. -->
 
 </details>
 
