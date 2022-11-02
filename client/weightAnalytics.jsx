@@ -23,7 +23,7 @@ const WeightAnalytics = ({ socket }) => {
         {
           type:'Max Weight',
           value: weightData,
-          description: ' represents the strength of the connection between nodes.',
+          description: ' represents the strength of the connection between nodes. Larger weights indicate overfitting.',
           color: '#68C1E5',
           boldName: 'Weight'}}/>
     );

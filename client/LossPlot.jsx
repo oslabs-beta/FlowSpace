@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { scaleLinear, max, min, extent } from 'd3';
 import './barChart.css';
 
-const height = '500';
-const width = '960';
+const height = '400';
+const width = '950';
 const margin = {top: 20, right: 20, bottom: 50, left: 80}
 
 const ScatterPlot = (props) => {
