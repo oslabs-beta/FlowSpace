@@ -1,5 +1,5 @@
 {
-  "name": "flowspace",
+  "name": "flowspace.js",
   "version": "0.0.1",
   "description": "a data visualization tool for TensorFlow.js",
   "main": "handshake.js",
