@@ -132,7 +132,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 1. Install our npm package in your terminal.
 
 ```sh
-npm install flowspace
+npm install flowspace.js
 ```
 
 2. Import HandShake class from the FlowSpace node_modules.
