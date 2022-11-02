@@ -8,7 +8,7 @@
 <h1 align="center">
 FlowState
 <br>
-<img height= "200" src="https://github.com/oslabs-beta/FlowSpace/raw/README/client/assets/Logo.jpg"/>
+<img height= "200" src="https://github.com/oslabs-beta/FlowSpace/blob/dev/client/assets/Logo.png"/>
 
 <h2 align= "center">
 
