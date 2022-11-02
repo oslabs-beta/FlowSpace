@@ -1,10 +1,11 @@
 {
-  "name": "stabrabbit7",
-  "version": "1.0.3",
+  "name": "flowspace",
+  "version": "0.0.1",
   "description": "",
   "main": "handshake.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "NODE_OPTIONS='--experimental-vm-modules' jest",
     "start": "nodemon ./server.js",
     "dev": "concurrently \"webpack serve --hot --progress --color\" \"nodemon ./server.js\"",
     "format": "prettier --write \"***/**/*.{js,jsx}\"",
@@ -12,14 +13,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/oslabs-beta/stabrabbit7.git"
+    "url": "git+https://github.com/oslabs-beta/FlowSpace.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/oslabs-beta/stabrabbit7/issues"
+    "url": "https://github.com/oslabs-beta/FlowSpace/issues"
   },
-  "homepage": "https://github.com/oslabs-beta/stabrabbit7#readme",
+  "homepage": "https://github.com/oslabs-beta/FlowSpace#readme",
   "dependencies": {
     "@babel/preset-env": "^7.18.10",
     "@babel/preset-react": "^7.18.6",
@@ -44,10 +45,16 @@
     "web-vitals": "^2.1.4"
   },
   "bin": {
-    "stabrabbit7": "./server.js"
+    "flowspace": "./server.js"
   },
   "devDependencies": {
+    "jest": "^29.2.2",
     "svg-inline-loader": "^0.8.2",
+    "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0"
+  },
+  "jest": {
+    "testEnvironment": "jest-environment-node",
+    "transform": {}
   }
 }
