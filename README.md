@@ -6,9 +6,8 @@
 
 <!-- FlowSpace Readme -->
 <h1 align="center">
-FlowSpace
 <br/>
-<img height= "200" src="https://raw.githubusercontent.com/oslabs-beta/FlowSpace/dev/client/assets/Logo.jpg"/>
+<img height= "200" src="https://raw.githubusercontent.com/oslabs-beta/FlowSpace/dev/client/assets/readme%20logo%20(2).png">
 
 <h2 align= "center">
 
@@ -38,18 +37,18 @@ An all in one data visualization tool for [TensorFlow.js](https://www.tensorflow
 </details> -->
 
 <hr>
-<details open> 
-    <summary><b> Problem </b></summary> <a name="problem"></a>
+<h3> <b>About FlowSpace</b> </h3><br/>
+
+<b> Problem </b><a name="problem"></a>
 
 Despite the fact that machine learning plays a crucial part in advancing the tech industry, many developers view it as intimidating due to its complexity, which consequently discourages many developers from engaging with it. To address the problem, Google’s Brain Team developed TensorFlow.js in 2018 to help bring machine learning to JavaScript developers with little to no experience in machine learning. While TensorFlow.js is simplified, it lacks direct support for Tensorboard, the visualization tool for its counterpart, TensorFlow.
 
-</details>
+<b> Solution </b><a name="solution"></a>
 
-<details open> 
-    <summary><b> Solution </b></summary> <a name="solution"></a>
-
-Our team’s core mission was to develop a real time model and data visualization tool for TensorFlow.js that requires minimal set-up by the developer while simultaneously providing them with all the necessary information required to fully comprehend their machine learning model. This allows the developer to make well informed decisions in regards to how they need to alter their model to improve accuracy while lowering the required number of epochs per training cycle.
+<p>Our team’s core mission was to develop a real time model and data visualization tool for TensorFlow.js that requires minimal set-up by the developer while simultaneously providing them with all the necessary information required to fully comprehend their machine learning model. This allows the developer to make well informed decisions in regards to how they need to alter their model to improve accuracy while lowering the required number of epochs per training cycle.
 This led the team to develop FlowSpace, a light-weight npm package that generates highly valuable data and intuitive visuals whilst remaining effortless to set-up.
+
+FlowSpace is developed using agile methodology in collaboration with the tech accelerator OS Labs (opensourcelabs.io)</p>
 
 </details>
 
@@ -59,9 +58,6 @@ This led the team to develop FlowSpace, a light-weight npm package that generate
 <details open>
     <summary><b>Table of Contents</b></summary>
     <ol>
-        <li>
-            <a href = "#aboutFlowSpace"> About FlowSpace </a>
-        </li>
         <li>
             <a href = "#techStack"> Tech-Stack </a>
         </li>
@@ -84,13 +80,6 @@ This led the team to develop FlowSpace, a light-weight npm package that generate
 </details>
 
 <hr>
-
-<details open> 
-    <summary><b> About FlowSpace </b></summary> <a name="aboutFlowSpace"></a>
-
-<!-- Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Viverra adipiscing at in tellus integer feugiat scelerisque varius. Mauris ultrices eros in cursus turpis massa. Porttitor massa id neque aliquam vestibulum morbi blandit. Amet tellus cras adipiscing enim. Eu volutpat odio facilisis mauris sit amet. -->
-
-</details>
 
 <details open> 
     <summary><b> Tech-Stack </b></summary> <a name="techStack"></a>
@@ -216,7 +205,7 @@ SOFTWARE.
 
 - [Mark Alexander](https://github.com/MarkA772)
 - [Saif Beiruty](https://github.com/saifbeiruty)
-- [Laurance Diarra](https://github.com/ld17282)
+- [Laurence Diarra](https://github.com/ld17282)
 - [Mike Oakes](https://github.com/MOakes7)
 - [Sabre Nguyen](https://github.com/klsabren)
 
