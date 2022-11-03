@@ -164,10 +164,12 @@ npx flowspace
 </details>
 
 <details open> 
-    <summary><b> Using FlowSpace Features </b></summary> <a name="usingFlowSpace"></a>
+    <summary><b> Using FlowSpace Features </b></summary> <a name="usingFlowSpace"></a><br/>
 
-<!-- Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Viverra adipiscing at in tellus integer feugiat scelerisque varius. Mauris ultrices eros in cursus turpis massa. Porttitor massa id neque aliquam vestibulum morbi blandit. Amet tellus cras adipiscing enim. Eu volutpat odio facilisis mauris sit amet. -->
-
+<div align=center>
+    <img style="width:35.4347%; height:auto" src="https://github.com/oslabs-beta/FlowSpace/raw/npmPackage/client/assets/graphing_panel.gif"/>
+    <img style="width:35.4347%; height:auto" src="https://github.com/oslabs-beta/FlowSpace/raw/npmPackage/client/assets/model_architecture.gif"/>
+<div>
 </details>
 
 <!-- ## Credits (Contributors) <a name = "credits"></a>
