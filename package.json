@@ -15,7 +15,7 @@
     "type": "git",
     "url": "git+https://github.com/oslabs-beta/FlowSpace.git"
   },
-  "author": "Mark Alexander, Saif Beiruty, Laurance Diarra, Mike Oakes, and Sabre Nguyen",
+  "author": "Mark Alexander, Saif Beiruty, Laurence Diarra, Mike Oakes, and Sabre Nguyen",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/oslabs-beta/FlowSpace/issues"
