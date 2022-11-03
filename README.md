@@ -167,8 +167,8 @@ npx flowspace
     <summary><b> Using FlowSpace Features </b></summary> <a name="usingFlowSpace"></a><br/>
 
 <div align=center>
-    <img style="width:35.4347%; height:auto" src="https://github.com/oslabs-beta/FlowSpace/raw/npmPackage/client/assets/loss_graphing_panel.gif"/>
     <img style="width:35.4347%; height:auto" src="https://github.com/oslabs-beta/FlowSpace/raw/npmPackage/client/assets/model_architecture.gif"/>
+    <img style="width:35.4347%; height:auto" src="https://github.com/oslabs-beta/FlowSpace/raw/npmPackage/client/assets/loss_graphing_panel.gif"/>
 <div>
 </details>
 
