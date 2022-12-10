@@ -127,7 +127,7 @@
     display: flex;
     flex-wrap: nowrap;
     overflow-x: auto;
-    padding-top: rem;
+    padding-top: 0rem;
     margin-left: -1.5rem;
     padding-left: 1.5rem;
 
@@ -139,6 +139,9 @@
   .analytics-tiles::-webkit-scrollbar {
     display: none;
   }
+  .analytics-tiles-graph::-webkit-scrollbar {
+    display: none;
+  }
 
   
   .react-flow__attribution {
@@ -148,18 +151,3 @@
 .tabIcon {
   margin: 0 auto;
 }
-  /*
-  .App-link {
-    color: #61dafb;
-  }
-  
-  
-  @keyframes App-logo-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-*/
