@@ -63,6 +63,8 @@ const parseModel = (model) => {
 	return layer;
 };
 
+// session data, every connection instance btw flowspace and dev's environment
+// temporarily get stored here 
 let lossData = [];
 let weightData;
 let lossMethodHolder;
@@ -72,6 +74,7 @@ let biasData;
 let optimizerIterations;
 let optimizerLearingRate;
 
+// send info to the frontend 
 io.on("connection", (socket) => {
 	console.log("client connected");
 
