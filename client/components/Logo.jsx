@@ -1,5 +1,5 @@
 import * as React from 'react';
-import LogoFS from './assets/Logo.png';
+import LogoFS from '../assets/Logo.png';
 
 export default function VerticalTabs() {
   return (

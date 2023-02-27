@@ -2,23 +2,19 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
-import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Logo from './Logo.jsx';
 import GraphIcon from './GraphIcon.jsx'
-import { yellow } from '@mui/material/colors';
-import './App.scss';
 import HorizontalFlow from './ReactFlowTest.jsx';
-import AnalyticsTile from './AnalyticsTile.jsx';
 import socketIO from 'socket.io-client';
 import LossPlot from './LossPlot.jsx';
-import LossBar from './LossBar.jsx';
 import LossAnalytics from './lossAnalytics.jsx';
 import { createTheme } from '@mui/material/styles';
 import WeightAnalytics from './weightAnalytics.jsx';
 import ExportButton from './ExportButton.jsx';
 import BiasAnalytics from './BiasAnalytics.jsx';
 import OptimizerAnalytics from './OptimizerAnalytics.jsx';
+
 
 const theme = createTheme({
   palette: {
@@ -40,6 +36,7 @@ const theme = createTheme({
 const socket = socketIO.connect('http://localhost:3333');
 
 function TabPanel(props) {
+  // default props 
   const { children, value, index, ...other } = props;
 
   return (
@@ -77,7 +74,7 @@ function clickEvent() {
 }
 
 export default function VerticalTabs() {
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);

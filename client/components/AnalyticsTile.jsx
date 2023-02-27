@@ -1,10 +1,10 @@
 import React, { useCallback, useState, useEffect } from 'react';
-import './AnalyticsTile.scss';
-import LossIcon from './assets/Group 1.png';
-import BiasIcon from './assets/Group 2.png';
-import WeightIcon from './assets/Group 3.png';
-import ActivationIcon from './assets/Group 4.png';
-import OptimizerIcon from './assets/Group 6.png';
+import '../style/AnalyticsTile.scss';
+import LossIcon from '../assets/Group 1.png';
+import BiasIcon from '../assets/Group 2.png';
+import WeightIcon from '../assets/Group 3.png';
+import ActivationIcon from '../assets/Group 4.png';
+import OptimizerIcon from '../assets/Group 6.png';
 
 const AnalyticsTile = ({ info }) => {
     const {

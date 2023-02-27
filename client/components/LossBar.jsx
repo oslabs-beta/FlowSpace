@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { scaleBand, scaleLinear, max } from 'd3';
-import './barChart.css';
+import './style/barChart.css';
 
 const height = 500;
 const width = 960;

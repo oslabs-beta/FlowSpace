@@ -8,7 +8,6 @@ import ReactFlow, {
   ZoomTo,
   FitView
 } from 'react-flow-renderer';
-import './App.scss';
 
 
 class Node {

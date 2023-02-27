@@ -1,9 +1,9 @@
 import React from 'react';
-import './App.scss';
+import '../style/App.scss';
 import socketIO from 'socket.io-client';
 import VerticalTabNav from './VerticalTabNav.jsx';
 
-const socket = socketIO.connect('http://localhost:3333');
+//const socket = socketIO.connect('http://localhost:3333');
 
 
 function App() {
