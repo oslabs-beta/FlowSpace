@@ -93,7 +93,7 @@ export default function VerticalTabs() {
     setValue(newValue);
   };
 
-  // lifecylce method to syncronize component 
+  // lifecycle method for syncing component to external system (i.e. socket.io server)
   useEffect(() => clickEvent(), []);
 
   return (
@@ -107,19 +107,13 @@ export default function VerticalTabs() {
         borderRadius: '30px',
         boxShadow: '0 10px 20px rgb(179, 197, 234, .75)' }}
     >
-      <Tabs
-        orientation="vertical"
-        value={value}
-        onChange={handleChange}
-        indicatorColor={theme.palette.primary.main}
-        sx={{ minWidth: '60px', maxWidth: '60px', float: 'left'}}
-      >
+      <Tabs orientation="vertical" value={value} onChange={handleChange} indicatorColor={theme.palette.primary.main} sx={{ minWidth: '60px', maxWidth: '60px', float: 'left'}}>
         <Tab className='tabIcon' icon={<Logo />} style={{ textAlign:'center'}} {...a11yProps(0)} onClick={clickEvent}/>
         <Tab className='tabIcon' icon={<GraphIcon />} style={{ textAlign:'center' }} {...a11yProps(1)} onClick={clickEvent}/>
         <ExportButton className='tabIcon' />
       </Tabs>
       <TabPanel value={value} index={0} style={{ backgroundColor: '#FAFBFF',width:'95%',float: 'right',borderRadius: '0px 30px 30px 0px'}}>
-          <div className='analytics-header' style={{ width: "100%", height: "7%", float: "right" }}> 
+        <div className='analytics-header' style={{ width: "100%", height: "7%", float: "right" }}> 
           <p>Welcome,</p>
           <h2>Model Architecture</h2>
         </div>
@@ -132,10 +126,10 @@ export default function VerticalTabs() {
           <h2>At A Glance</h2>
         </div>
         <div className='analytics-tiles'>
-              <LossAnalytics className='tile' socket={socket} />
-              <BiasAnalytics className='tile' socket={socket} />
-              <WeightAnalytics className='tile' socket={socket} />
-              <OptimizerAnalytics className='tile' socket={socket} />
+          <LossAnalytics className='tile' socket={socket} />
+          <BiasAnalytics className='tile' socket={socket} />
+          <WeightAnalytics className='tile' socket={socket} />
+          <OptimizerAnalytics className='tile' socket={socket} />
         </div>
       </TabPanel>
       <TabPanel value={value} index={1} style={{backgroundColor: '#FAFBFF',width:'95%',float: 'right',borderRadius: '0px 30px 30px 0px' }}>
@@ -145,11 +139,11 @@ export default function VerticalTabs() {
             <h2>At A Glance</h2>
           </div>
           <div id='graph-tiles' className='analytics-tiles'>
-                <LossAnalytics className='tile' socket={socket} />
-                <BiasAnalytics className='tile' socket={socket} />
-                <WeightAnalytics className='tile' socket={socket} />
-                <OptimizerAnalytics className='tile' socket={socket} />
-            </div>
+            <LossAnalytics className='tile' socket={socket} />
+            <BiasAnalytics className='tile' socket={socket} />
+            <WeightAnalytics className='tile' socket={socket} />
+            <OptimizerAnalytics className='tile' socket={socket} />
+          </div>
         </div>
       </TabPanel>
     </Box>

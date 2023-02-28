@@ -80,6 +80,7 @@ let optimizerLearingRate;
 io.on("connection", (socket) => {
 	console.log("client connected");
 
+	// modelData event that socket.io-client is listening for on fronted 
 	socket.on("modelData", (data, allWeights) => {
 		const d = parseModel(data);
 		savedModel = parseModel(data);
@@ -87,10 +88,11 @@ io.on("connection", (socket) => {
 		io.sockets.emit("incomingData", d, allWeights);
 	});
 
-  socket.on("modelInfo", (lossMethod, optimizer, maxBias, maxWeight, loss) => {
-    if (loss.epoch === 0) {
-      lossData = [];
-    }
+	// modelData event that socket.io-client is listening for on fronted
+  	socket.on("modelInfo", (lossMethod, optimizer, maxBias, maxWeight, loss) => {
+		if (loss.epoch === 0) {
+		lossData = [];
+		}
 		lossData.push(loss);
 		io.sockets.emit("sentOptimizerData", optimizer.iterations_, optimizer.learningRate);
 		io.sockets.emit("sentLossDataPlot", lossData);
@@ -104,6 +106,7 @@ io.on("connection", (socket) => {
 		lossMethodHolder = lossMethod
 	});
 	
+	// onClick event that socket.io-client is listening for on fronted
 	socket.on("onClick", () => {
 		io.sockets.emit("incomingData", savedModel, allWeightData[allWeightData.length - 1]);
 		io.sockets.emit("sentLossDataPlot", lossData);
@@ -113,6 +116,7 @@ io.on("connection", (socket) => {
 		io.sockets.emit("sentOptimizerData", optimizerIterations, optimizerLearingRate);
 	});
 
+	// diconnect event that socket.io-client is listening for on fronted
 	socket.on("disconnect", () => {
 		console.log("client disconnected");
 	});
