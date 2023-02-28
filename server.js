@@ -80,7 +80,8 @@ let optimizerLearingRate;
 io.on("connection", (socket) => {
 	console.log("client connected");
 
-	// modelData event that socket.io-client is listening for on fronted 
+	// modelData event, means our socket.io-server is listening for this event from dev's
+	// socket.io client via the Handshake 
 	socket.on("modelData", (data, allWeights) => {
 		const d = parseModel(data);
 		savedModel = parseModel(data);
@@ -88,7 +89,8 @@ io.on("connection", (socket) => {
 		io.sockets.emit("incomingData", d, allWeights);
 	});
 
-	// modelData event that socket.io-client is listening for on fronted
+	// modelData event, means our socket.io-server is listening for this event from dev's
+	// socket.io client via the Handshake
   	socket.on("modelInfo", (lossMethod, optimizer, maxBias, maxWeight, loss) => {
 		if (loss.epoch === 0) {
 		lossData = [];
@@ -106,7 +108,8 @@ io.on("connection", (socket) => {
 		lossMethodHolder = lossMethod
 	});
 	
-	// onClick event that socket.io-client is listening for on fronted
+	// onClick vent, means our socket.io-server is listening for this event from dev's
+	// socket.io client via the Handshake
 	socket.on("onClick", () => {
 		io.sockets.emit("incomingData", savedModel, allWeightData[allWeightData.length - 1]);
 		io.sockets.emit("sentLossDataPlot", lossData);
@@ -116,7 +119,8 @@ io.on("connection", (socket) => {
 		io.sockets.emit("sentOptimizerData", optimizerIterations, optimizerLearingRate);
 	});
 
-	// diconnect event that socket.io-client is listening for on fronted
+	// diconnect vent, means our socket.io-server is listening for this event from dev's
+	// socket.io client via the Handshake
 	socket.on("disconnect", () => {
 		console.log("client disconnected");
 	});

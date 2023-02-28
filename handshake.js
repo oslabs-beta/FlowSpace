@@ -1,4 +1,5 @@
-//DevClient side
+// connection to DevClient side
+
 //imports socketIO client with connection
 import socketIO from 'socket.io-client';
 

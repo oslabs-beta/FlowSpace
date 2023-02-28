@@ -159,7 +159,6 @@ function parseLayer(layerInfo, setNodes, setEdges, allWeights) {
     }
   }
 
-
   // returs the shape of the next layer to the right 
   const getNextLayerShape = (initialNodes, layerNumber) => {
     let nextLayerShape = 0;
