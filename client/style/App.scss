@@ -64,28 +64,27 @@
 .react-flow-rectangle {
   width: 99.5%;
   height: 100%;
-  background-color: #fff;
   border-radius: 30px;
   backdrop-filter: blur(5px);
   background-color: rgba(255, 255, 255, 1);
+  /* claymorphism styling */
   box-shadow: 0 10px 20px rgb(179, 197, 234, .75),
             inset 0px 0px 0px 0px rgba(145, 192, 255, 0.75),
             inset -4px -4px 8px 0px rgba(145, 193, 255, 0.30),
             inset 0px 10px 20px 0px rgb(255, 255, 255);
 }
 
-.container {
-  margin-left: 3rem;
-}
-
+/* styling for "Welcome" */
 .analytics-header p {
     color: rgb(164, 162, 162);
     font-family: HandoSoft-Medium;
     font-size: 15px;
     margin-left: 0rem;
     margin-bottom: 0px;
+    margin-top: 0px;
 }
 
+/* Styling for "Model Architecture" */
 .analytics-header h2 {
   margin-top: 0px;
   color: black;
@@ -94,12 +93,13 @@
   margin-left: 0rem;
 }
 
-
+/* graph panel wrapper to instantiate a flexbox with columns*/
 .graphPanelWrapper {
   display: flex;
   flex-direction: column;
 }
 
+/* styling for "At A Glance" */
 .analytics-overview-header h2 {
   color: black;
   font-family: Aeonik-Bold;
@@ -107,21 +107,23 @@
   margin-left: 0rem;
 }
 
+/* custom margin spacing for overview header on main tab*/
 #front-overview-header {
   margin-top: .3rem;
   margin-bottom: .3rem;
 }
 
+/* custom margin spacing for overview header on graph tab*/
 #graph-overview-header {
   margin-top: 1rem;
 }
 
+/* due to graph tab being a flexbox, overwrite h2 display attribute */
 #graph-overview-header h2 {
   display: inline;
 }
 
-
-
+/* horizontal scrolling div with analytics tiles */
 .analytics-tiles {
   height:42%;
   width: 102.4%;
@@ -130,13 +132,18 @@
   flex-wrap: nowrap;
   overflow-x: auto;
   box-sizing: border-box;
+  padding-left: 1rem;
 
   .tile {
     flex: 0 0 auto;
   }
 } 
 
-#graph {
+/* 
+  graph tiles need more padding due to size difference betwen ReactFlow 
+  component and D3 graph component 
+*/
+#graph-tiles {
   padding-block: 25px;
 }
 
