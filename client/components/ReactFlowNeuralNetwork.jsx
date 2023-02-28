@@ -1,14 +1,6 @@
 // import { node } from '@tensorflow/tfjs-node';
 import React, { useCallback, useState, useEffect } from 'react';
-import ReactFlow, {
-  useNodesState,
-  useEdgesState,
-  addEdge,
-  ReactFlowProvider,
-  ZoomTo,
-  FitView
-} from 'react-flow-renderer';
-
+import ReactFlow, { useNodesState, useEdgesState, addEdge, ReactFlowProvider} from 'react-flow-renderer';
 
 class Node {
   constructor(layerInfo, nodeInfo) {
@@ -17,7 +9,20 @@ class Node {
   }
 }
 
-const diam = '5rem';
+// style objects for nodes
+const nodeStyle = {
+    width: '5rem',
+    height: '5rem',
+    borderRadius: '50%',
+    background: 'linear-gradient(to top, #DB4437, #EA8419, #F4B400)',
+    color: '#fff',
+    borderRadius: '50px',
+    border: 'none',
+    outline: 'none',
+    cursor: 'pointer',
+    boxShadow:'0 15px 30px rgb(179, 197, 234, .75)',
+}
+
 
 let nodeInfo = [];
 let initialEdges = [];
@@ -48,6 +53,7 @@ function parseLayer(layerInfo, setNodes, setEdges, allWeights) {
   // input layer
   const initialNodes = [];
   initialEdges = [];
+
   for (let i = 0; i < layerInfo[0].input_shape; i++) {
     let nodeInfo;
 
@@ -58,21 +64,9 @@ function parseLayer(layerInfo, setNodes, setEdges, allWeights) {
         id: `input${i + 1}`,
         sourcePosition: 'right',
         type: 'input',
-        // data: { label: `Input-${i + 1}` },
         position: { x: 0, y: 100 * i },
         className: 'clay',
-        style: {
-          width: diam,
-          height: diam,
-          borderRadius: '50%',
-          background: 'linear-gradient(to top, #DB4437, #EA8419, #F4B400)',
-          color: '#fff',
-          borderRadius: '50px',
-          border: 'none',
-          outline: 'none',
-          cursor: 'pointer',
-          boxShadow:'0 15px 30px rgb(179, 197, 234, .75)',
-        },
+        style: nodeStyle,
       };
     } else {
       let yHeight = (maxHeight - inputHeight) / 2;
@@ -82,21 +76,9 @@ function parseLayer(layerInfo, setNodes, setEdges, allWeights) {
         id: `input${i + 1}`,
         sourcePosition: 'right',
         type: 'input',
-        // data: { label: `Input-${i + 1}` },
         position: { x: 0, y: 100 * i + yHeight },
         className: 'clay',
-        style: {
-          width: diam,
-          height: diam,
-          borderRadius: '50%',
-          background: 'linear-gradient(to top, #DB4437, #EA8419, #F4B400)',
-          color: '#fff',
-          borderRadius: '50px',
-          border: 'none',
-          outline: 'none',
-          cursor: 'pointer',
-          boxShadow:'0 15px 30px rgb(179, 197, 234, .75)',
-        },
+        style: nodeStyle,
       };
     }
 
@@ -120,21 +102,8 @@ function parseLayer(layerInfo, setNodes, setEdges, allWeights) {
             id: `layer${Number(keys) + 1}-node${i + 1}`,
             targetPosition: 'left',
             type: 'output',
-            // data: { label: `Output-${i + 1}` }, //`Layer${Number(keys)+1}-Node-${i+1}`
             position: { x: (Number(keys) + 1) * 300, y: 100 * i },
-            style: {
-              width: diam,
-              height: diam,
-              borderRadius: '50%',
-              fontWeight: 'bold',
-              border: 'none',
-              padding: '2rem .5rem',
-              fontFamily: 'inherit',
-              backgrounBlendMode: 'multiply',
-              color: 'rgb(235, 234, 234)',
-              background: 'linear-gradient(225deg, #181818, #2e2e2e)',
-              boxShadow: '5px 5px 10px #191919, 5px -5px 10px #292929',
-            },
+            style: nodeStyle,
           };
         } else {
           let yHeight = (maxHeight - layerInfo[keys].layer_height_px) / 2;
@@ -142,20 +111,8 @@ function parseLayer(layerInfo, setNodes, setEdges, allWeights) {
             id: `layer${Number(keys) + 1}-node${i + 1}`,
             targetPosition: 'left',
             type: 'output',
-            // data: { label: `Output-${i + 1}` }, //`Layer${Number(keys)+1}-Node-${i+1}`
             position: { x: (Number(keys) + 1) * 300, y: 100 * i + yHeight },
-            style: {
-              width: diam,
-              height: diam,
-              borderRadius: '50%',
-              background: 'linear-gradient(to top, #DB4437, #EA8419, #F4B400)',
-              color: '#fff',
-              borderRadius: '50px',
-              border: 'none',
-              outline: 'none',
-              cursor: 'pointer',
-              boxShadow:'0 15px 30px rgb(179, 197, 234, .75)',
-            },
+            style: nodeStyle,
           };
         }
       } else {
@@ -165,20 +122,8 @@ function parseLayer(layerInfo, setNodes, setEdges, allWeights) {
             id: `layer${Number(keys) + 1}-node${i + 1}`,
             sourcePosition: 'right',
             targetPosition: 'left',
-            // data: { label: `Layer${Number(keys) + 1}-Node-${i + 1}` },
             position: { x: (Number(keys) + 1) * 300, y: 100 * i },
-            style: {
-              width: diam,
-              height: diam,
-              borderRadius: '50%',
-              background: 'linear-gradient(to top, #DB4437, #EA8419, #F4B400)',
-              color: '#fff',
-              borderRadius: '50px',
-              border: 'none',
-              outline: 'none',
-              cursor: 'pointer',
-              boxShadow:'0 15px 30px rgb(179, 197, 234, .75)',
-            },
+            style: nodeStyle,
           };
         } else {
           let yHeight = (maxHeight - layerInfo[keys].layer_height_px) / 2;
@@ -186,20 +131,8 @@ function parseLayer(layerInfo, setNodes, setEdges, allWeights) {
             id: `layer${Number(keys) + 1}-node${i + 1}`,
             sourcePosition: 'right',
             targetPosition: 'left',
-            // data: { label: `Layer${Number(keys) + 1}-Node-${i + 1}` },
             position: { x: (Number(keys) + 1) * 300, y: 100 * i + yHeight },
-            style: {
-              width: diam,
-              height: diam,
-              borderRadius: '50%',
-              background: 'linear-gradient(to top, #DB4437, #EA8419, #F4B400)',
-              color: '#fff',
-              borderRadius: '50px',
-              border: 'none',
-              outline: 'none',
-              cursor: 'pointer',
-              boxShadow:'0 15px 30px rgb(179, 197, 234, .75)',
-            },
+            style:nodeStyle,
           };
         }
       }
@@ -252,7 +185,6 @@ function parseLayer(layerInfo, setNodes, setEdges, allWeights) {
         source: initialNodes[nodeNum].nodeInfo.id,
         type: 'simplebezier',
         target: `layer${nextLayerNumber}-node${i + 1}`,
-        // label: allWeights[counter],
         style: {
           stroke: '#F4B400',
           strokeWidth: allWeights ? allWeights[counter] : 1.5 // default thickness until weight data comes in
@@ -261,17 +193,16 @@ function parseLayer(layerInfo, setNodes, setEdges, allWeights) {
 
       counter++
 
-    
-
       initialEdges.push(edge);
     }
   }
+
   nodeInfo = initialNodes.map((x) => x.nodeInfo);
   setNodes(nodeInfo);
   setEdges(initialEdges);
 }
 
-const HorizontalFlow = (props) => {
+const NeuralNetwork = (props) => {
   const [nodes, setNodes, onNodesChange] = useNodesState([]);
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
   const onConnect = useCallback(
@@ -301,8 +232,6 @@ const HorizontalFlow = (props) => {
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
         fitView
-        // defaultZoom={50}
-        // defaultPosition={[50,50]}
         minZoom={-100}
         maxZoom={1000}
         onInit={onLoad}
@@ -312,4 +241,4 @@ const HorizontalFlow = (props) => {
   );
 };
 
-export default HorizontalFlow;
+export default NeuralNetwork;

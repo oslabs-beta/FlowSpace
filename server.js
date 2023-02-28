@@ -6,6 +6,7 @@ const http = require("http");
 const server = http.createServer(app);
 const { Server } = require("socket.io");
 
+// socket-io server
 const io = new Server(server, {
 	cors: {
 		origin: ["http://localhost:8080", "http://localhost:8081"],
@@ -63,8 +64,9 @@ const parseModel = (model) => {
 	return layer;
 };
 
-// session data, every connection instance btw flowspace and dev's environment
-// temporarily get stored here 
+// session data: every connection between flowspace (socket.io server) and 
+// dev's environment (socket.io client) temporarily store data in these variables  
+// to be sent to Flowspaces's fronted (socket.io client)
 let lossData = [];
 let weightData;
 let lossMethodHolder;
@@ -74,7 +76,7 @@ let biasData;
 let optimizerIterations;
 let optimizerLearingRate;
 
-// send info to the frontend 
+// connect to socket-io client on dev's end
 io.on("connection", (socket) => {
 	console.log("client connected");
 
@@ -82,7 +84,6 @@ io.on("connection", (socket) => {
 		const d = parseModel(data);
 		savedModel = parseModel(data);
 		allWeightData.push(allWeights);
-		//console.log(allWeightData);
 		io.sockets.emit("incomingData", d, allWeights);
 	});
 
@@ -95,13 +96,12 @@ io.on("connection", (socket) => {
 		io.sockets.emit("sentLossDataPlot", lossData);
 		io.sockets.emit("sentLossDataAnalytics", lossData, lossMethod);
 		io.sockets.emit("sentWeightData", maxWeight);
-    io.sockets.emit('sentBiasData', maxBias)
-	weightData = maxWeight;
-    biasData = maxBias;
-	optimizerIterations = optimizer.iterations_;
-	optimizerLearingRate = optimizer.learningRate;
-	lossMethodHolder = lossMethod
-		//console.log(`weightData size is ${weightData.length}`);
+		io.sockets.emit('sentBiasData', maxBias)
+		weightData = maxWeight;
+		biasData = maxBias;
+		optimizerIterations = optimizer.iterations_;
+		optimizerLearingRate = optimizer.learningRate;
+		lossMethodHolder = lossMethod
 	});
 	
 	socket.on("onClick", () => {

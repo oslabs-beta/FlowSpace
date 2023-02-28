@@ -33,20 +33,6 @@
     justify-content: center;
   }
   
-  /*
-  .App-logo {
-    height: 40vmin;
-    pointer-events: none;
-  }
-  */
-  
-  /*
-  @media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-      animation: App-logo-spin infinite 20s linear;
-    }
-  }
-  */
 
   .Dashboard {
     width: 90%;
@@ -54,6 +40,14 @@
     border-radius: 30px;
     background-color: #FAFBFF;
     box-shadow: 0 10px 20px rgb(179, 197, 234, .75);
+
+    //define a media query for a browser with minimum width of 280px * 5
+    @media (min-width: calc(280px * 5)) {
+    //define a custom property for .Dasboard
+    .Dashboard {
+       --repeat: 5; 
+    }
+   }
   }
   
   .react-flow-rectangle {

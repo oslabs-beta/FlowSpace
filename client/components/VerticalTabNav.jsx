@@ -5,7 +5,7 @@ import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import Logo from './Logo.jsx';
 import GraphIcon from './GraphIcon.jsx'
-import HorizontalFlow from './ReactFlowTest.jsx';
+import NeuralNetwork from './ReactFlowNeuralNetwork.jsx';
 import socketIO from 'socket.io-client';
 import LossPlot from './LossPlot.jsx';
 import LossAnalytics from './lossAnalytics.jsx';
@@ -34,6 +34,11 @@ const theme = createTheme({
 });
 
 const socket = socketIO.connect('http://localhost:3333');
+
+function clickEvent() {
+  socket.emit("onClick");
+}
+
 
 function TabPanel(props) {
   // default props 
@@ -69,9 +74,6 @@ function a11yProps(index) {
   };
 }
 
-function clickEvent() {
-  socket.emit("onClick");
-}
 
 export default function VerticalTabs() {
   const [value, setValue] = useState(0);
@@ -110,7 +112,7 @@ export default function VerticalTabs() {
         </div>
         <div className='analytics-architecture' style={{ width: "100%", height: "40%", float: "right" }}>
           <div className="react-flow-rectangle">
-            <HorizontalFlow socket={socket} />
+            <NeuralNetwork socket={socket} />
           </div>
         </div>
         <div className='analytics-overview-header' style={{ width: "100%", height: "6%", float: "right" }}>
