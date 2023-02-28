@@ -1,4 +1,4 @@
-import React, { useCallback, useState, useEffect } from 'react';
+import React from 'react';
 import '../style/AnalyticsTile.scss';
 import LossIcon from '../assets/Group 1.png';
 import BiasIcon from '../assets/Group 2.png';

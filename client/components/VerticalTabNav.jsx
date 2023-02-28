@@ -4,7 +4,7 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import Logo from './Logo.jsx';
-import GraphIcon from './GraphIcon.jsx'
+import GraphIcon from './GraphIcon.jsx';
 import NeuralNetwork from './ReactFlowNeuralNetwork.jsx';
 import socketIO from 'socket.io-client';
 import LossPlot from './LossPlot.jsx';
@@ -104,6 +104,7 @@ export default function VerticalTabs() {
       >
         <Tab className='tabIcon' icon={<Logo />} style={{ textAlign:'center'}} {...a11yProps(0)} onClick={clickEvent}/>
         <Tab className='tabIcon' icon={<GraphIcon />} style={{ textAlign:'center' }} {...a11yProps(1)} onClick={clickEvent}/>
+        <ExportButton className='tabIcon' />
       </Tabs>
       <TabPanel value={value} index={0} style={{backgroundColor: '#FAFBFF',width:'95%',float: 'right',borderRadius: '0px 30px 30px 0px'}}>
           <div className='analytics-header' style={{ width: "100%", height: "10%", float: "right" }}> 
@@ -126,17 +127,18 @@ export default function VerticalTabs() {
           </div>
       </TabPanel>
       <TabPanel value={value} index={1} style={{backgroundColor: '#FAFBFF',width:'95%',float: 'right',borderRadius: '0px 30px 30px 0px' }}>
-         <LossPlot socket={socket} />
-         <div className='analytics-overview-header-graph' style={{ width: "100%", height: "6%", float: "right", paddingTop: "5.8rem" }}>
-         <ExportButton />
-          <h2>At A Glance</h2>
-        </div>
-         <div className='analytics-tiles-graph' style={{ paddingTop: "1rem" }}>
-              <LossAnalytics className='tile' socket={socket} />
-              <BiasAnalytics className='tile' socket={socket} />
-              <WeightAnalytics className='tile' socket={socket} />
-              <OptimizerAnalytics className='tile' socket={socket} />
+        <div className='graphPanelWrapper'>
+          <LossPlot socket={socket} />
+          <div className='analytics-overview-header' style={{ width: "100%", height: "6%", float: "right"}}>
+            <h2>At A Glance</h2>
           </div>
+          <div className='analytics-tiles'>
+                <LossAnalytics className='tile' socket={socket} />
+                <BiasAnalytics className='tile' socket={socket} />
+                <WeightAnalytics className='tile' socket={socket} />
+                <OptimizerAnalytics className='tile' socket={socket} />
+            </div>
+        </div>
       </TabPanel>
     </Box>
   );

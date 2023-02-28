@@ -1,4 +1,4 @@
-import React, { useCallback, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import AnalyticsTile from './AnalyticsTile.jsx';
 
 const OptimizerAnalytics = ({ socket }) => {
