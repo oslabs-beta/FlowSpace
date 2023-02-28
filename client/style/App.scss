@@ -94,18 +94,33 @@
   margin-left: 0rem;
 }
 
+
 .graphPanelWrapper {
   display: flex;
   flex-direction: column;
 }
 
 .analytics-overview-header h2 {
-  margin-top: 1.5rem;
   color: black;
   font-family: Aeonik-Bold;
   font-size: 20px;
   margin-left: 0rem;
 }
+
+#front-overview-header {
+  margin-top: .3rem;
+  margin-bottom: .3rem;
+}
+
+#graph-overview-header {
+  margin-top: 1rem;
+}
+
+#graph-overview-header h2 {
+  display: inline;
+}
+
+
 
 .analytics-tiles {
   height:42%;
@@ -120,6 +135,10 @@
     flex: 0 0 auto;
   }
 } 
+
+#graph {
+  padding-block: 25px;
+}
 
 /* remove horizontal scroll bars from analytics tile div*/
 .analytics-tiles::-webkit-scrollbar {

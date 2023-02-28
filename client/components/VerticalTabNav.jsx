@@ -116,7 +116,7 @@ export default function VerticalTabs() {
             <NeuralNetwork socket={socket} />
           </div>
         </div>
-        <div className='analytics-overview-header' style={{ width: "100%", height: "6%", float: "right" }}>
+        <div id='front-overview-header' className='analytics-overview-header' style={{ width: "100%", height: "6%", float: "right" }}>
           <h2>At A Glance</h2>
         </div>
         <div className='analytics-tiles'>
@@ -129,10 +129,10 @@ export default function VerticalTabs() {
       <TabPanel value={value} index={1} style={{backgroundColor: '#FAFBFF',width:'95%',float: 'right',borderRadius: '0px 30px 30px 0px' }}>
         <div className='graphPanelWrapper'>
           <LossPlot socket={socket} />
-          <div className='analytics-overview-header' style={{ width: "100%", height: "6%", float: "right"}}>
+          <div id='graph-overview-header' className='analytics-overview-header' style={{ width: "100%", height: "6%", float: "right"}}>
             <h2>At A Glance</h2>
           </div>
-          <div className='analytics-tiles'>
+          <div id='graph' className='analytics-tiles'>
                 <LossAnalytics className='tile' socket={socket} />
                 <BiasAnalytics className='tile' socket={socket} />
                 <WeightAnalytics className='tile' socket={socket} />
