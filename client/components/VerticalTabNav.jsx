@@ -100,7 +100,7 @@ export default function VerticalTabs() {
         value={value}
         onChange={handleChange}
         indicatorColor={theme.palette.primary.main}
-        sx={{ width: '5%', float: 'left'}}
+        sx={{ minWidth: '60px', maxWidth: '60px', float: 'left'}}
       >
         <Tab className='tabIcon' icon={<Logo />} style={{ textAlign:'center'}} {...a11yProps(0)} onClick={clickEvent}/>
         <Tab className='tabIcon' icon={<GraphIcon />} style={{ textAlign:'center' }} {...a11yProps(1)} onClick={clickEvent}/>

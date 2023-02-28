@@ -10,8 +10,8 @@
   src: local('HandoSoft-Medium'), url('../assets/Hando\ Soft/HandoSoft-Medium.ttf') format('ttf');
 }
 
+
 .App {
-    /*text-align: center;*/
     width: 100vw;
     height: 100vh;
     background-image: linear-gradient(
@@ -31,6 +31,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    min-width: 1000px;
   }
   
 
@@ -40,14 +41,6 @@
     border-radius: 30px;
     background-color: #FAFBFF;
     box-shadow: 0 10px 20px rgb(179, 197, 234, .75);
-
-    //define a media query for a browser with minimum width of 280px * 5
-    @media (min-width: calc(280px * 5)) {
-    //define a custom property for .Dasboard
-    .Dashboard {
-       --repeat: 5; 
-    }
-   }
   }
   
   .react-flow-rectangle {
@@ -106,9 +99,7 @@
     display: flex;
     flex-wrap: nowrap;
     overflow-x: auto;
-    padding-top: 1rem;
-    margin-left: -1.5rem;
-    padding-left: 1.5rem;
+    box-sizing: border-box;
 
     .tile {
       flex: 0 0 auto;
@@ -142,18 +133,4 @@
 .tabIcon {
   margin: 0 auto;
 }
-  /*
-  .App-link {
-    color: #61dafb;
-  }
-  
-  
-  @keyframes App-logo-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-*/
+
