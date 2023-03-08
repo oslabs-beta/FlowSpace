@@ -123,7 +123,9 @@ io.on("connection", (socket) => {
 });
 
 server.listen(3333, () => {
-	console.log("Server listening on 3333");
+	console.log("Server listening on 8081");
 });
+
+// TODO: Update server.js file and package.json bin so user can run the appropriate flowspace script without going into the node_modules manually.
 
 
