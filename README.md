@@ -81,7 +81,7 @@ FlowSpace is developed using agile methodology in collaboration with the tech ac
 
 <hr>
 
-<details open> 
+<!-- <details open> 
     <summary><b> Tech-Stack </b></summary> <a name="techStack"></a>
     <div align="center">
         <div align="center">
@@ -111,7 +111,7 @@ FlowSpace is developed using agile methodology in collaboration with the tech ac
     </code> <br>
     </div>
 
-</details>
+</details> -->
 
 <details open> 
     <summary><b> Install and Set-up </b></summary> <a name="installAndSetup"></a>
