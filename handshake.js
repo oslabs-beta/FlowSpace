@@ -71,7 +71,6 @@ export class HandShake {
       let normalizedWeight = 0.8 + ( ((Math.abs(allWeights[weight]) - minimum) * (10 - 0.8)) / Math.abs(result) - minimum)
       normalizedData.push(normalizedWeight) 
     }
-    
     socket.emit('modelInfo', this.model.loss, this.model.optimizer, biasResult, result, { epoch, loss: log.loss } )
     socket.emit('modelData', this.model, normalizedData)
 

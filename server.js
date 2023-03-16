@@ -1,10 +1,14 @@
 #!/usr/bin/env node
 
-const express = require("express");
+import express from 'express';
 const app = express();
-const http = require("http");
+import http  from 'http';
 const server = http.createServer(app);
-const { Server } = require("socket.io");
+import { Server } from 'socket.io';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
 
 // socket-io server
 const io = new Server(server, {
@@ -14,11 +18,11 @@ const io = new Server(server, {
 });
 
 app.get("/", (req, res) => {
-	res.sendFile(__dirname + "/build/index.html");
+	res.sendFile(path.dirname(__filename) + "/build/index.html");
 });
 
 app.get("/bundle.js", (req, res) => {
-	res.sendFile(__dirname + "/build/bundle.js");
+	res.sendFile(path.dirname(__filename) + "/build/bundle.js");
 });
 
 app.get("/export", (req, res) => {
@@ -34,6 +38,9 @@ const parseModel = (model) => {
 	model = JSON.parse(model);
 
 	let layer = {};
+  let input_shape;
+  let output_shape;
+  let params;
 
 	for (let i = 0; i < model.config.layers.length; i++) {
 		// check if it's the first layer or not to set input shape
