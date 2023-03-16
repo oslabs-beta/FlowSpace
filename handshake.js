@@ -1,4 +1,5 @@
-//DevClient side
+// connection to DevClient side
+
 //imports socketIO client with connection
 import socketIO from 'socket.io-client';
 
@@ -17,6 +18,7 @@ export class HandShake {
     const allWeights = [];
     const allAbsMax = [];
     const allBiasAbsMax = [];
+    
     // Let's get the max of each layer
     for (let i = 0; i < x.length; i++) { 
       // This gets the weights in each layer and returns an array of weights

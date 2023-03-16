@@ -1,13 +1,9 @@
 import React from 'react';
-import './App.scss';
-import socketIO from 'socket.io-client';
+import '../style/App.scss';
 import VerticalTabNav from './VerticalTabNav.jsx';
-
-const socket = socketIO.connect('http://localhost:3333');
 
 
 function App() {
-
   return (
     <div className="App">
       <div className='Dashboard'>

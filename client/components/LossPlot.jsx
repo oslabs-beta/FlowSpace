@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { scaleLinear, max, min, extent } from 'd3';
-import './barChart.css';
+import '../style/barChart.scss';
 
-const height = '400';
+const height = '350';
 const width = '950';
 const margin = {top: 20, right: 20, bottom: 50, left: 80}
 
@@ -58,11 +58,11 @@ const ScatterPlot = (props) => {
                 </g>
                 <defs>
                     <linearGradient id="MarkGradient" x1="0.5" y1="0" x2="0.5" y2="1">
-                        <stop offset="0%" stop-color="#f4b400"/>
-                        <stop offset="17%" stop-color="#f1a50e"/>
-                        <stop offset="51%" stop-color="#ea8419"/>
-                        <stop offset="67.33%" stop-color="#e3722a"/>
-                        <stop offset="100%" stop-color="#db4437"/>
+                        <stop offset="0%" stopColor="#f4b400"/>
+                        <stop offset="17%" stopColor="#f1a50e"/>
+                        <stop offset="51%" stopColor="#ea8419"/>
+                        <stop offset="67.33%" stopColor="#e3722a"/>
+                        <stop offset="100%" stopColor="#db4437"/>
                     </linearGradient>
                 </defs>
             </svg>

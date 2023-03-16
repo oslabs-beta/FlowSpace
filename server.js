@@ -10,6 +10,7 @@ import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 
+// socket-io server
 const io = new Server(server, {
 	cors: {
 		origin: ["http://localhost:8080", "http://localhost:8081"],
@@ -70,6 +71,9 @@ const parseModel = (model) => {
 	return layer;
 };
 
+// session data: every connection between flowspace (socket.io server) and 
+// dev's environment (socket.io client) temporarily store data in these variables  
+// to be sent to Flowspaces's fronted (socket.io client)
 let lossData = [];
 let weightData;
 let lossMethodHolder;
@@ -79,35 +83,40 @@ let biasData;
 let optimizerIterations;
 let optimizerLearingRate;
 
+// connect to socket-io client on dev's end
 io.on("connection", (socket) => {
 	console.log("client connected");
 
+	// modelData event, means our socket.io-server is listening for this event from dev's
+	// socket.io client via the Handshake 
 	socket.on("modelData", (data, allWeights) => {
 		const d = parseModel(data);
 		savedModel = parseModel(data);
 		allWeightData.push(allWeights);
-		//console.log(allWeightData);
 		io.sockets.emit("incomingData", d, allWeights);
 	});
 
-  socket.on("modelInfo", (lossMethod, optimizer, maxBias, maxWeight, loss) => {
-    if (loss.epoch === 0) {
-      lossData = [];
-    }
+	// modelData event, means our socket.io-server is listening for this event from dev's
+	// socket.io client via the Handshake
+  	socket.on("modelInfo", (lossMethod, optimizer, maxBias, maxWeight, loss) => {
+		if (loss.epoch === 0) {
+		lossData = [];
+		}
 		lossData.push(loss);
 		io.sockets.emit("sentOptimizerData", optimizer.iterations_, optimizer.learningRate);
 		io.sockets.emit("sentLossDataPlot", lossData);
 		io.sockets.emit("sentLossDataAnalytics", lossData, lossMethod);
 		io.sockets.emit("sentWeightData", maxWeight);
-    io.sockets.emit('sentBiasData', maxBias)
-	weightData = maxWeight;
-    biasData = maxBias;
-	optimizerIterations = optimizer.iterations_;
-	optimizerLearingRate = optimizer.learningRate;
-	lossMethodHolder = lossMethod
-		//console.log(`weightData size is ${weightData.length}`);
+		io.sockets.emit('sentBiasData', maxBias)
+		weightData = maxWeight;
+		biasData = maxBias;
+		optimizerIterations = optimizer.iterations_;
+		optimizerLearingRate = optimizer.learningRate;
+		lossMethodHolder = lossMethod
 	});
 	
+	// onClick vent, means our socket.io-server is listening for this event from dev's
+	// socket.io client via the Handshake
 	socket.on("onClick", () => {
 		io.sockets.emit("incomingData", savedModel, allWeightData[allWeightData.length - 1]);
 		io.sockets.emit("sentLossDataPlot", lossData);
@@ -117,6 +126,8 @@ io.on("connection", (socket) => {
 		io.sockets.emit("sentOptimizerData", optimizerIterations, optimizerLearingRate);
 	});
 
+	// diconnect vent, means our socket.io-server is listening for this event from dev's
+	// socket.io client via the Handshake
 	socket.on("disconnect", () => {
 		console.log("client disconnected");
 	});
